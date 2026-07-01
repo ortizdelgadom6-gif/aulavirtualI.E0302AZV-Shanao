@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula Virtual | I.E. N° 0302 AZV</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --az:#0a2a5e;--azm:#1a4a9e;--azc:#2d74d4;--azs:#e6f0ff;--azi:#f0f6ff;--aza:#3b9eff;
+  --do:#f0b429;--ve:#22c55e;--ro:#ef4444;--mo:#7c3aed;--gr:#4a5568;--tx:#1a202c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Nunito",sans-serif;background:var(--azi);color:var(--tx);}
+
+/* HEADER */
+header{background:linear-gradient(135deg,#0a1f3d 0%,#0d2f5a 30%,#1a4a9e 65%,#2d74d4 100%);color:#fff;position:sticky;top:0;z-index:200;box-shadow:0 4px 24px rgba(10,42,94,.5);}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:10px 28px;border-bottom:1px solid rgba(255,255,255,.12);}
+.logo-wrap{position:relative;display:flex;align-items:center;gap:0;}
+.logo-ring{width:68px;height:68px;border-radius:50%;background:radial-gradient(circle,#fff 55%,#f0b429 70%,#ef4444 85%,#8b0000 100%);padding:3px;box-shadow:0 0 0 3px rgba(240,180,41,.5),0 0 20px rgba(240,180,41,.3),0 4px 16px rgba(0,0,0,.4);animation:logoGlow 3s ease-in-out infinite;}
+.logo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
+@keyframes logoGlow{0%,100%{box-shadow:0 0 0 3px rgba(240,180,41,.5),0 0 20px rgba(240,180,41,.3),0 4px 16px rgba(0,0,0,.4);}50%{box-shadow:0 0 0 5px rgba(240,180,41,.7),0 0 30px rgba(240,180,41,.5),0 4px 20px rgba(0,0,0,.4);}}
+.ie-txt{margin-left:14px;}
+.ie-txt .sub{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#93c5fd;margin-bottom:2px;}
+.ie-txt .main{font-size:17px;font-weight:900;letter-spacing:.02em;}
+.ie-txt .lema{font-size:10px;opacity:.7;letter-spacing:.06em;font-style:italic;}
+.header-right{text-align:right;}
+.header-right .yr{font-size:20px;font-weight:900;color:var(--do);letter-spacing:.05em;}
+.header-right .loc{font-size:11px;opacity:.75;margin-top:2px;}
+.header-band{background:rgba(0,0,0,.25);padding:7px 28px;display:flex;align-items:center;gap:14px;font-size:11px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.08);}
+.band-tag{background:linear-gradient(135deg,var(--do),#f97316);color:#fff;padding:2px 12px;border-radius:20px;font-weight:800;font-size:10px;text-transform:uppercase;box-shadow:0 2px 8px rgba(240,180,41,.4);}
+.grado-sw{display:flex;gap:7px;margin-left:auto;}
+.gs-btn{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);color:#fff;padding:5px 16px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif;transition:all .2s;}
+.gs-btn.active{background:linear-gradient(135deg,var(--do),#f97316);color:#fff;border-color:transparent;box-shadow:0 2px 10px rgba(240,180,41,.5);}
+.gs-btn:hover:not(.active){background:rgba(255,255,255,.22);}
+
+/* NAV */
+.nav-tabs{background:#fff;border-bottom:2px solid var(--azs);display:flex;padding:0 28px;overflow-x:auto;gap:0;box-shadow:0 2px 8px rgba(10,42,94,.06);}
+.nav-tab{padding:11px 16px;font-size:12px;font-weight:700;color:var(--gr);cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:5px;}
+.nav-tab:hover{color:var(--azc);background:var(--azi);}
+.nav-tab.active{color:var(--azc);border-bottom-color:var(--azc);}
+.bc{background:var(--ro);color:#fff;border-radius:10px;padding:1px 6px;font-size:9px;}
+
+/* NOTIF */
+.notif{background:linear-gradient(135deg,var(--do),#f97316);color:#fff;text-align:center;padding:8px 20px;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 2px 8px rgba(240,180,41,.4);}
+.notif .nx{margin-left:auto;cursor:pointer;opacity:.7;font-size:15px;}
+
+/* PAGES */
+.page{display:none;}.page.active{display:block;}
+main{max-width:1100px;margin:0 auto;padding:26px 18px;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#070f2b 0%,#0a2a5e 40%,#1a4a9e 70%,#2d74d4 100%);color:#fff;padding:44px 28px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(45,116,212,.3) 0%,transparent 70%),url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z'/%3E%3C/g%3E%3C/svg%3E");}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1100px;margin:0 auto;position:relative;z-index:1;align-items:center;}
+.hero-badge{display:inline-block;background:rgba(240,180,41,.2);border:1px solid rgba(240,180,41,.4);color:#fde68a;padding:4px 14px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;}
+.hero-left h2{font-family:"Merriweather",serif;font-size:26px;line-height:1.25;margin-bottom:12px;}
+.hero-left p{font-size:13px;opacity:.8;line-height:1.75;margin-bottom:20px;}
+.hero-stats{display:flex;gap:10px;flex-wrap:wrap;}
+.sc{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 16px;text-align:center;backdrop-filter:blur(8px);min-width:76px;cursor:pointer;transition:all .2s;}
+.sc:hover{transform:translateY(-3px);background:rgba(255,255,255,.18);}
+.sc .n{font-size:24px;font-weight:900;color:var(--do);}
+.sc .l{font-size:9px;opacity:.7;text-transform:uppercase;letter-spacing:.05em;}
+.prof-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:22px;backdrop-filter:blur(10px);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;}
+.pa{width:68px;height:68px;background:linear-gradient(135deg,var(--do),#f97316);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;border:3px solid rgba(255,255,255,.35);box-shadow:0 4px 16px rgba(240,180,41,.3);}
+.pname{font-size:16px;font-weight:800;}
+.pbg{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;}
+.pb{padding:2px 9px;border-radius:18px;font-size:9px;font-weight:700;text-transform:uppercase;}
+.pb-g{background:var(--do);color:var(--az);}
+.pb-b{background:rgba(59,158,255,.3);color:#93c5fd;border:1px solid rgba(59,158,255,.4);}
+.btn-mp{background:rgba(255,255,255,.13);color:#fff;border:1px solid rgba(255,255,255,.3);padding:7px 16px;border-radius:10px;font-size:11px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif;transition:all .2s;margin-top:3px;width:100%;}
+.btn-mp:hover{background:rgba(255,255,255,.24);}
+
+/* SECTION TITLE */
+.st{font-size:18px;font-weight:800;color:var(--az);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.st::before{content:'';display:inline-block;width:4px;height:22px;background:linear-gradient(to bottom,var(--azc),var(--aza));border-radius:3px;}
+
+/* CARDS BASE */
+.card{background:#fff;border-radius:14px;border:1.5px solid #dce8ff;box-shadow:0 2px 10px rgba(10,42,94,.06);}
+.card:hover{box-shadow:0 6px 20px rgba(10,42,94,.12);}
+
+/* ANUNCIO */
+.anuncio{background:#fff;border-radius:13px;border-left:5px solid var(--azc);padding:13px 16px;margin-bottom:9px;box-shadow:0 2px 8px rgba(10,42,94,.06);display:flex;align-items:flex-start;gap:11px;transition:box-shadow .2s;}
+.anuncio:hover{box-shadow:0 5px 18px rgba(10,42,94,.12);}
+.ai{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.ai.info{background:var(--azs)}.ai.warn{background:#fff7e6}.ai.ok{background:#e8fce8}.ai.doc{background:#ede9fe}
+.ac h4{font-size:13px;font-weight:700;margin-bottom:3px;}
+.ac p{font-size:12px;color:var(--gr);line-height:1.6;}
+.af{font-size:10px;color:#999;margin-top:3px;}
+.aa{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap;}
+
+/* BUTTONS */
+.btn{padding:7px 18px;border-radius:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif;transition:all .2s;border:none;display:inline-flex;align-items:center;gap:5px;}
+.btn:hover{transform:translateY(-1px);opacity:.9;}
+.btn-az{background:linear-gradient(135deg,var(--azm),var(--azc));color:#fff;box-shadow:0 3px 10px rgba(45,116,212,.3);}
+.btn-do{background:linear-gradient(135deg,var(--do),#f97316);color:#fff;box-shadow:0 3px 10px rgba(240,180,41,.3);}
+.btn-ve{background:linear-gradient(135deg,#16a34a,var(--ve));color:#fff;box-shadow:0 3px 10px rgba(34,197,94,.3);}
+.btn-mo{background:linear-gradient(135deg,var(--mo),#a855f7);color:#fff;box-shadow:0 3px 10px rgba(124,58,237,.3);}
+.btn-ro{background:linear-gradient(135deg,#dc2626,var(--ro));color:#fff;}
+.btn-out{background:#fff;color:var(--gr);border:1.5px solid #ddd;}
+.btn-out:hover{border-color:var(--azc);color:var(--azc);}
+.btn-sm{padding:4px 11px;font-size:11px;}
+
+/* DOCENTE PANEL */
+.dpanel{background:#fff;border-radius:16px;border:2px solid var(--mo);padding:26px;margin-bottom:24px;box-shadow:0 4px 20px rgba(124,58,237,.1);}
+.dbadge{background:linear-gradient(135deg,var(--mo),#a855f7);color:#fff;padding:5px 14px;border-radius:18px;font-size:11px;font-weight:700;}
+.dua{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px dashed var(--mo);border-radius:13px;padding:26px;text-align:center;cursor:pointer;transition:all .25s;}
+.dua:hover,.dua.dg{border-color:#6d28d9;background:linear-gradient(135deg,#ede9fe,#ddd6fe);transform:scale(1.01);}
+.btn-ud{background:linear-gradient(135deg,var(--mo),#a855f7);color:#fff;border:none;padding:9px 22px;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif;box-shadow:0 4px 12px rgba(124,58,237,.35);transition:all .2s;}
+.btn-ud:hover{transform:translateY(-2px);}
+.dform{background:#f8f7ff;border-radius:12px;padding:18px;margin-top:14px;}
+.fg{display:flex;flex-direction:column;gap:4px;}
+.fg label{font-size:11px;font-weight:700;color:var(--az);}
+.fg input,.fg select,.fg textarea{padding:7px 11px;border:1.5px solid #c3d8f5;border-radius:9px;font-size:12px;font-family:"Nunito",sans-serif;background:#fff;color:var(--tx);transition:border .2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--mo);box-shadow:0 0 0 3px rgba(124,58,237,.1);}
+.fg textarea{resize:vertical;min-height:65px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:11px;}
+.mi{display:flex;align-items:center;gap:11px;background:var(--azi);border-radius:10px;padding:10px 13px;margin-bottom:7px;border:1.5px solid #dce8ff;transition:all .2s;}
+.mi:hover{border-color:var(--azc);}
+.mi-ico{font-size:20px;flex-shrink:0;}
+.mi-info h5{font-size:12px;font-weight:700;}
+.mi-info p{font-size:10px;color:var(--gr);}
+.mi-acts{margin-left:auto;display:flex;gap:6px;}
+.bdl{background:linear-gradient(135deg,var(--ve),#16a34a);color:#fff;border:none;padding:4px 12px;border-radius:7px;font-size:10px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif;}
+.bdel{background:#fee2e2;color:var(--ro);border:none;padding:4px 9px;border-radius:7px;font-size:10px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif;}
+
+/* UNIDADES */
+.gs{background:#fff;border-radius:15px;padding:18px;margin-bottom:18px;border:2px solid var(--azs);box-shadow:0 2px 10px rgba(10,42,94,.05);}
+.gh{display:flex;align-items:center;gap:11px;margin-bottom:14px;}
+.gb{padding:4px 13px;border-radius:18px;font-size:11px;font-weight:800;text-transform:uppercase;}
+.gb4{background:linear-gradient(135deg,var(--azc),var(--aza));color:#fff;}
+.gb5{background:linear-gradient(135deg,var(--mo),#a855f7);color:#fff;}
+.ug{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;}
+.uc{background:var(--azi);border-radius:13px;border:1.5px solid #dce8ff;padding:16px;cursor:pointer;transition:all .25s;}
+.uc:hover{border-color:var(--azc);box-shadow:0 5px 18px rgba(45,116,212,.15);transform:translateY(-3px);}
+.uc.act{border-color:var(--azc);background:#fff;}
+.uc.pur{border-color:#a78bfa;}
+.uc.pur:hover{border-color:var(--mo);box-shadow:0 5px 18px rgba(124,58,237,.15);}
+.un{font-size:9px;font-weight:800;color:var(--azc);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;}
+.un.p{color:var(--mo);}
+.ut{font-size:13px;font-weight:800;color:var(--az);margin-bottom:5px;}
+.ud{font-size:11px;color:var(--gr);line-height:1.6;}
+.pb{height:5px;background:var(--azs);border-radius:3px;overflow:hidden;margin-top:9px;}
+.pf{height:100%;background:linear-gradient(90deg,var(--azc),var(--aza));border-radius:3px;transition:width .8s ease;}
+.pf.p{background:linear-gradient(90deg,var(--mo),#a855f7);}
+.pl{font-size:10px;color:var(--gr);margin-top:3px;}
+.tt{background:var(--azs);color:var(--azm);font-size:9px;font-weight:700;padding:2px 7px;border-radius:9px;text-transform:uppercase;display:inline-block;margin:2px 2px 0 0;}
+.tt.p{background:#ede9fe;color:#6d28d9;}
+.ub{margin-top:11px;width:100%;padding:8px;background:linear-gradient(135deg,var(--azm),var(--azc));color:#fff;border:none;border-radius:9px;font-size:11px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif;transition:all .2s;}
+.ub:hover{opacity:.9;transform:translateY(-1px);}
+.ub.p{background:linear-gradient(135deg,var(--mo),#a855f7);}
+.ub:disabled{background:#ccc;cursor:not-allowed;transform:none;}
+
+/* EVAL */
+.ec{background:#fff;border-radius:13px;border:1.5px solid #dce8ff;padding:16px;margin-bottom:10px;box-shadow:0 2px 8px rgba(10,42,94,.05);}
+.eh{display:flex;align-items:center;gap:11px;margin-bottom:9px;}
+.ei{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.ei.q{background:#fff7e6}.ei.pr{background:var(--azs)}.ei.py{background:#e8fce8}.ei.d{background:#ede9fe}
+.em{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.ech{background:var(--azi);border:1px solid #dce8ff;padding:3px 9px;border-radius:9px;font-size:10px;font-weight:600;}
+.be{padding:8px 18px;background:linear-gradient(135deg,var(--azm),var(--azc));color:#fff;border:none;border-radius:9px;font-size:11px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif;transition:all .2s;}
+.be:hover{opacity:.9;transform:translateY(-1px);}
+.be.p{background:linear-gradient(135deg,var(--mo),#a855f7);}
+.be.ok{background:linear-gradient(135deg,#16a34a,var(--ve));}
+
+/* FORO */
+.fn{background:#fff;border-radius:13px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(10,42,94,.06);}
+.fp{background:#fff;border-radius:12px;border:1px solid #e2eaff;padding:14px;margin-bottom:9px;box-shadow:0 2px 6px rgba(10,42,94,.04);}
+.fav{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--azc),var(--aza));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex-shrink:0;}
+.fav.pf2{background:linear-gradient(135deg,var(--do),#f97316);}
+.fr{background:var(--azi);border-radius:9px;padding:10px;margin-bottom:6px;}
+.bf{background:none;border:1px solid #dde8ff;color:var(--gr);padding:4px 11px;border-radius:7px;font-size:10px;font-weight:600;cursor:pointer;font-family:"Nunito",sans-serif;transition:all .2s;}
+.bf:hover{background:var(--azs);border-color:var(--azc);color:var(--azc);}
+
+/* CRONOGRAMA */
+.ct{width:100%;border-collapse:collapse;background:#fff;border-radius:13px;overflow:hidden;box-shadow:0 2px 10px rgba(10,42,94,.06);}
+.ct th{background:linear-gradient(135deg,var(--az),var(--azc));color:#fff;padding:11px 13px;text-align:left;font-size:11px;font-weight:700;}
+.ct td{padding:9px 13px;font-size:11px;border-bottom:1px solid #eef3ff;vertical-align:middle;}
+.ct tr:last-child td{border-bottom:none;}
+.ct tr:hover td{background:var(--azi);}
+.co{padding:2px 9px;border-radius:9px;font-size:9px;font-weight:700;}
+.co-ok{background:#e8fce8;color:#166534}
+.co-h{background:#dbeafe;color:var(--azm)}
+.co-p{background:#fff7e6;color:#b45309}
+.co-x{background:#f1f5f9;color:#64748b}
+.co-m{background:#ede9fe;color:#6d28d9}
+
+/* PERFIL */
+.pcard{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 16px rgba(10,42,94,.08);display:flex;gap:22px;align-items:flex-start;margin-bottom:18px;}
+.pav2{width:76px;height:76px;background:linear-gradient(135deg,var(--azc),var(--aza));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;font-weight:900;flex-shrink:0;}
+.ps{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;}
+.psi .pn{font-size:22px;font-weight:900;color:var(--azc);}
+.psi .pk{font-size:9px;color:var(--gr);text-transform:uppercase;}
+.calt{width:100%;border-collapse:collapse;background:#fff;border-radius:13px;overflow:hidden;box-shadow:0 2px 10px rgba(10,42,94,.06);}
+.calt th{background:linear-gradient(135deg,var(--az),var(--azc));color:#fff;padding:10px 13px;text-align:left;font-size:11px;}
+.calt td{padding:9px 13px;font-size:11px;border-bottom:1px solid #eef3ff;}
+.nota{font-weight:800;font-size:13px;}
+.nota.a{color:#166534}.nota.b{color:var(--azm)}.nota.c{color:#b45309}
+.progi{margin-bottom:12px;}
+.progh{display:flex;justify-content:space-between;margin-bottom:4px;font-size:11px;font-weight:700;}
+.progw{height:8px;background:var(--azs);border-radius:4px;overflow:hidden;}
+.progf{height:100%;background:linear-gradient(90deg,var(--azc),var(--aza));border-radius:4px;transition:width .8s ease;}
+.progf.p{background:linear-gradient(90deg,var(--mo),#a855f7);}
+
+/* MODAL */
+.mo{display:none;position:fixed;inset:0;background:rgba(7,15,43,.6);z-index:500;align-items:center;justify-content:center;padding:14px;backdrop-filter:blur(4px);}
+.mo.open{display:flex;}
+.md{background:#fff;border-radius:18px;max-width:680px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(10,42,94,.3);}
+.mh{background:linear-gradient(135deg,var(--az),var(--azc));color:#fff;padding:18px 24px;border-radius:18px 18px 0 0;display:flex;align-items:center;justify-content:space-between;}
+.mh.mp{background:linear-gradient(135deg,var(--mo),#a855f7);}
+.mh h3{font-size:16px;font-weight:800;}
+.mc{background:rgba(255,255,255,.18);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;}
+.mb{padding:20px 24px;}
+.mf{padding:13px 24px;border-top:1px solid #e8f0ff;display:flex;gap:9px;justify-content:flex-end;}
+.si{display:flex;align-items:center;gap:11px;padding:11px;background:var(--azi);border-radius:10px;margin-bottom:7px;border:1.5px solid transparent;transition:all .2s;}
+.si:hover{border-color:var(--azc);background:var(--azs);}
+.sn{width:34px;height:34px;background:var(--azc);color:#fff;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0;}
+.sn.p{background:var(--mo);}
+
+/* QUIZ */
+.qopt{display:flex;align-items:center;gap:8px;padding:8px 11px;background:#fff;border-radius:8px;margin-bottom:5px;cursor:pointer;border:1.5px solid #dce8ff;font-size:12px;transition:all .2s;}
+.qopt:hover{border-color:var(--azc);}
+.qopt.correct{background:#e8fce8;border-color:var(--ve);}
+.qopt.wrong{background:#fee2e2;border-color:var(--ro);}
+
+/* EVIDENCIAS */
+.ua{background:linear-gradient(135deg,var(--azi),var(--azs));border:2px dashed #93c5fd;border-radius:13px;padding:28px;text-align:center;cursor:pointer;transition:all .25s;}
+.ua:hover,.ua.dg{border-color:var(--azc);background:linear-gradient(135deg,#dbeafe,#bfdbfe);}
+.btn-up{background:linear-gradient(135deg,var(--azm),var(--azc));color:#fff;border:none;padding:9px 22px;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif;box-shadow:0 4px 12px rgba(45,116,212,.35);transition:all .2s;}
+.btn-up:hover{transform:translateY(-2px);}
+.fp2{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;}
+.fc{display:flex;align-items:center;gap:6px;background:#fff;border:1.5px solid #c3d8f5;border-radius:9px;padding:5px 10px;font-size:11px;max-width:190px;}
+.fc .fr2{margin-left:auto;cursor:pointer;font-size:13px;color:#aaa;}
+.fc .fr2:hover{color:var(--ro);}
+.ef{display:none;background:var(--azi);border-radius:11px;padding:18px;margin-top:14px;}
+.btn-env{background:linear-gradient(135deg,#16a34a,var(--ve));color:#fff;border:none;padding:9px 20px;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif;transition:all .2s;}
+.btn-env:hover{transform:translateY(-2px);}
+.btn-can{background:#fff;color:var(--gr);border:1.5px solid #ddd;padding:9px 15px;border-radius:10px;font-size:12px;font-weight:600;cursor:pointer;font-family:"Nunito",sans-serif;}
+.eit{display:flex;align-items:center;gap:11px;background:#fff;border-radius:12px;border:1px solid #e2eaff;padding:12px 15px;margin-bottom:9px;box-shadow:0 2px 6px rgba(10,42,94,.04);transition:box-shadow .2s;}
+.eit:hover{box-shadow:0 4px 14px rgba(10,42,94,.1);}
+.sp{background:#fff7e6;color:#b45309;padding:2px 10px;border-radius:16px;font-size:9px;font-weight:700;text-transform:uppercase;}
+.se{background:#e8fce8;color:#166534;padding:2px 10px;border-radius:16px;font-size:9px;font-weight:700;text-transform:uppercase;}
+.sr{background:#ede9fe;color:#6d28d9;padding:2px 10px;border-radius:16px;font-size:9px;font-weight:700;text-transform:uppercase;}
+
+/* DRIVE BANNER */
+.drb{background:linear-gradient(135deg,#070f2b,#1a4a9e);border-radius:13px;padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:13px;flex-wrap:wrap;box-shadow:0 4px 16px rgba(10,42,94,.2);}
+.drb .dt{color:#fff;flex:1;}
+.drb .dt strong{font-size:14px;display:block;}
+.drb .dt span{font-size:11px;opacity:.75;}
+.btn-dr{background:var(--do);color:var(--az);border:none;padding:9px 18px;border-radius:10px;font-size:12px;font-weight:800;cursor:pointer;font-family:"Nunito",sans-serif;white-space:nowrap;box-shadow:0 3px 10px rgba(240,180,41,.4);}
+.btn-dr:hover{transform:translateY(-1px);}
+
+/* TOAST */
+.toast{position:fixed;bottom:22px;right:22px;border-radius:12px;padding:12px 18px;font-size:12px;font-weight:700;box-shadow:0 8px 28px rgba(0,0,0,.25);transform:translateX(220%);transition:transform .4s cubic-bezier(.34,1.56,.64,1);z-index:999;display:flex;align-items:center;gap:8px;max-width:300px;}
+.toast.show{transform:translateX(0);}
+.toast.success{background:linear-gradient(135deg,#166534,#22c55e);color:#fff;}
+.toast.info{background:linear-gradient(135deg,var(--azm),var(--azc));color:#fff;}
+.toast.warn{background:linear-gradient(135deg,#92400e,var(--do));color:#fff;}
+.toast.error{background:linear-gradient(135deg,#991b1b,var(--ro));color:#fff;}
+.toast.purple{background:linear-gradient(135deg,var(--mo),#a855f7);color:#fff;}
+.sbr{background:var(--azs);border-bottom:2px solid #dce8ff;padding:9px 18px;display:flex;gap:9px;align-items:center;margin-bottom:18px;border-radius:11px;box-shadow:0 2px 6px rgba(10,42,94,.06);}
+.sbr input{flex:1;border:none;font-family:"Nunito",sans-serif;font-size:12px;color:var(--tx);background:transparent;}
+.sbr input:focus{outline:none;}
+
+/* EMPTY */
+.emp{text-align:center;padding:36px 20px;color:var(--gr);}
+.emp .ei2{font-size:44px;margin-bottom:12px;}
+
+/* MEET CARD */
+.meet-card{background:#fff;border-radius:14px;border:1.5px solid #b2dfdb;padding:18px;box-shadow:0 2px 10px rgba(0,137,123,.08);transition:box-shadow .2s;}
+.meet-card:hover{box-shadow:0 6px 20px rgba(0,137,123,.15);}
+
+/* VIDEO CARD */
+.vid-card{background:#fff;border-radius:14px;border:1.5px solid #fecaca;overflow:hidden;box-shadow:0 2px 10px rgba(239,68,68,.07);transition:all .25s;}
+.vid-card:hover{box-shadow:0 6px 20px rgba(239,68,68,.15);transform:translateY(-2px);}
+.vid-thumb{position:relative;width:100%;padding-top:56.25%;background:#000;cursor:pointer;}
+.vid-thumb iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.vid-thumb .play-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}
+.vid-thumb .play-overlay:hover{background:rgba(0,0,0,.2);}
+.vid-thumb .play-btn{width:64px;height:64px;background:#ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(255,0,0,.5);}
+.vid-info{padding:13px;}
+.vid-info h4{font-size:13px;font-weight:800;color:var(--az);margin-bottom:5px;}
+.vid-info p{font-size:11px;color:var(--gr);line-height:1.5;margin-bottom:8px;}
+.vid-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px;}
+.vid-chip{background:#fee2e2;color:#b91c1c;font-size:9px;font-weight:700;padding:2px 8px;border-radius:8px;}
+@media(max-width:768px){
+  .header-top,.header-band,.hero{padding-left:12px;padding-right:12px;}
+  .hero-grid{grid-template-columns:1fr;}
+  main{padding:14px 10px;}
+  .form-grid{grid-template-columns:1fr;}
+  .pcard{flex-direction:column;}
+  .ie-txt .main{font-size:14px;}
+}
+footer{background:linear-gradient(135deg,#070f2b,var(--az));color:rgba(255,255,255,.65);text-align:center;padding:16px;font-size:11px;margin-top:14px;border-top:2px solid rgba(240,180,41,.3);}
+footer strong{color:var(--do);}
+</style>
+</head>
+<body>
+
+<div class="notif" id="notifBar">
+  📢 <strong>Recordatorio:</strong> Entrega evidencias Unidad 2 — Vence <strong>30 mayo 2026 · 11:59 PM</strong>
+  <span class="nx" onclick="document.getElementById('notifBar').style.display='none'">✕</span>
+</div>
+
+<header>
+  <div class="header-top">
+    <div class="logo-wrap">
+      <div class="logo-ring">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" id="logoImg" alt="Logo IE" style="display:none">
+        <!-- Logo REAL de la I.E. N° 0302 "Amadeo Zumaeta Valles" - Shanao -->
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoH BwYIDAoMCwsKCwsNCxAQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCADAAMADASIAAhEBAxEB/8QAHAAAAgMBAQEBAAAAAAAAAAAABQYEBwMCAQj/xABKEAACAQMDAgQDBQYEBAMJAAABAgMABBEFEiExBhNBUQciYXEUMoGRoSNCscHRFVJi8DNygpIkJTRDU2OiwuHxFhckNUSDs//EABoBAAMBAQEBAAAAAAAAAAAAAAMEBQIBBgD/xAAtEQACAgIBBAEDAwUBAQAAAAABAgADEQQSITETIkFRBRQyYXGBkSNCobH/2gAMAwEAAhEDEQA/APqmiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/Z" 
+             alt="Escudo I.E. N° 0302 Amadeo Zumaeta Valles - Shanao"
+             style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;"
+             onerror="this.style.display='none';document.getElementById('logoSVG').style.display='block'">
+        <!-- SVG de respaldo fiel al escudo real -->
+        <svg id="logoSVG" viewBox="0 0 220 250" xmlns="http://www.w3.org/2000/svg" style="display:none;width:100%;height:100%;border-radius:50%">
+          <defs>
+            <clipPath id="circ"><circle cx="110" cy="125" r="108"/></clipPath>
+          </defs>
+          <g clip-path="url(#circ)">
+            <!-- Fondo blanco -->
+            <rect width="220" height="250" fill="white"/>
+            <!-- Forma del escudo: fondo rojo exterior -->
+            <path d="M10,10 Q10,5 20,5 L200,5 Q210,5 210,15 L210,155 Q210,230 110,245 Q10,230 10,155 Z" fill="#CC0000"/>
+            <!-- Interior blanco del escudo -->
+            <path d="M18,13 Q18,10 24,10 L196,10 Q202,10 202,16 L202,153 Q202,224 110,238 Q18,224 18,153 Z" fill="white"/>
+            <!-- Sección superior roja (bandera peruana) -->
+            <rect x="18" y="10" width="184" height="78" rx="4" fill="#CC0000"/>
+            <!-- Franja blanca central de la bandera -->
+            <rect x="73" y="10" width="74" height="78" fill="white"/>
+            <!-- Letras I y E en blanco con sombra negra -->
+            <text x="46" y="66" font-family="Georgia,serif" font-weight="900" font-size="52" fill="white" text-anchor="middle" stroke="#222" stroke-width="1.5">I</text>
+            <text x="174" y="66" font-family="Georgia,serif" font-weight="900" font-size="52" fill="white" text-anchor="middle" stroke="#222" stroke-width="1.5">E</text>
+            <!-- Separador rojo -->
+            <rect x="18" y="86" width="184" height="5" fill="#CC0000"/>
+            <!-- Fondo celeste inferior -->
+            <path d="M18,91 L202,91 L202,153 Q202,224 110,238 Q18,224 18,153 Z" fill="#00B4D8"/>
+            <!-- Rayos solares amarillo-dorado -->
+            <g transform="translate(110,148)" opacity="0.9">
+              <line x1="0" y1="-52" x2="-62" y2="18" stroke="#F5C518" stroke-width="13"/>
+              <line x1="0" y1="-52" x2="-38" y2="38" stroke="#F5C518" stroke-width="13"/>
+              <line x1="0" y1="-52" x2="-12" y2="45" stroke="#F5C518" stroke-width="13"/>
+              <line x1="0" y1="-52" x2="12" y2="45" stroke="#F5C518" stroke-width="13"/>
+              <line x1="0" y1="-52" x2="38" y2="38" stroke="#F5C518" stroke-width="13"/>
+              <line x1="0" y1="-52" x2="62" y2="18" stroke="#F5C518" stroke-width="13"/>
+            </g>
+            <!-- Tierra marrón -->
+            <path d="M18,175 Q18,224 110,238 Q202,224 202,175 L202,165 L18,165 Z" fill="#8B4513"/>
+            <!-- Sombra del libro -->
+            <ellipse cx="110" cy="167" rx="44" ry="9" fill="#6B3410" opacity="0.5"/>
+            <!-- Libro izquierdo -->
+            <path d="M68,135 Q68,132 72,132 L108,132 L108,165 L68,165 Q66,165 66,162 Z" fill="#E8D5B7" stroke="#C4A882" stroke-width="1"/>
+            <!-- Libro derecho -->
+            <path d="M112,132 L152,132 Q154,132 154,135 L154,162 Q154,165 152,165 L112,165 Z" fill="#F0E0C8" stroke="#C4A882" stroke-width="1"/>
+            <!-- Línea central del libro -->
+            <line x1="110" y1="130" x2="110" y2="166" stroke="#8B4513" stroke-width="2.5"/>
+            <!-- Páginas del libro (líneas decorativas) -->
+            <line x1="72" y1="140" x2="106" y2="140" stroke="#C4A882" stroke-width="0.8"/>
+            <line x1="72" y1="146" x2="106" y2="146" stroke="#C4A882" stroke-width="0.8"/>
+            <line x1="72" y1="152" x2="106" y2="152" stroke="#C4A882" stroke-width="0.8"/>
+            <line x1="114" y1="140" x2="148" y2="140" stroke="#C4A882" stroke-width="0.8"/>
+            <line x1="114" y1="146" x2="148" y2="146" stroke="#C4A882" stroke-width="0.8"/>
+            <line x1="114" y1="152" x2="148" y2="152" stroke="#C4A882" stroke-width="0.8"/>
+            <!-- Año 1994 sobre el libro -->
+            <text x="110" y="155" font-family="Arial" font-weight="900" font-size="13" fill="#3D1A00" text-anchor="middle">1994</text>
+            <!-- Texto N° 0302 "A Z V" -->
+            <text x="110" y="108" font-family="Arial" font-weight="900" font-size="13" fill="#003366" text-anchor="middle">N° 0302 "A Z V"</text>
+            <!-- Texto INVESTIGACIÓN TRABAJO Y VALORES (en arco simulado) -->
+            <text x="110" y="121" font-family="Arial" font-weight="700" font-size="7.5" fill="#003366" text-anchor="middle">INVESTIGACIÓN TRABAJO Y VALORES</text>
+            <!-- SHANAO en la parte inferior -->
+            <text x="110" y="228" font-family="Arial" font-weight="900" font-size="15" fill="#CC0000" text-anchor="middle" letter-spacing="2">SHANAO</text>
+            <!-- Borde doble rojo exterior (el escudo tiene doble borde) -->
+            <path d="M10,10 Q10,5 20,5 L200,5 Q210,5 210,15 L210,155 Q210,230 110,245 Q10,230 10,155 Z" fill="none" stroke="#CC0000" stroke-width="4"/>
+            <path d="M6,10 Q6,2 20,2 L200,2 Q214,2 214,16 L214,155 Q214,234 110,248 Q6,234 6,155 Z" fill="none" stroke="#CC0000" stroke-width="3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="ie-txt">
+        <div class="sub">I.E. N° 0302</div>
+        <div class="main">Amadeo Zumaeta Valles</div>
+        <div class="lema">Investigación, Trabajo y Valores · 1994</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="yr">2026</div>
+      <div class="loc">📍 Shanao · San Martín · Perú</div>
+    </div>
+  </div>
+  <div class="header-band">
+    <span class="band-tag">📚 EPT</span>
+    <span style="opacity:.8">Educación para el Trabajo</span>
+    <span style="opacity:.6">|</span>
+    <span>👨‍🏫 Prof. Manolo Ortiz Delgado</span>
+    <span style="opacity:.6">|</span>
+    <span>4° y 5° Secundaria</span>
+    <div class="grado-sw">
+      <button class="gs-btn active" id="btn4" onclick="setGrado(4)">📱 4° Grado</button>
+      <button class="gs-btn" id="btn5" onclick="setGrado(5)">🖥️ 5° Grado</button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="nav('inicio')">🏠 Inicio</div>
+  <div class="nav-tab" onclick="nav('docente')">👨‍🏫 Docente <span class="bc" id="bdoc">3</span></div>
+  <div class="nav-tab" onclick="nav('unidades')">📚 Unidades</div>
+  <div class="nav-tab" onclick="nav('evaluaciones')">🧪 Evaluaciones <span class="bc" id="beval">5</span></div>
+  <div class="nav-tab" onclick="nav('evidencias')">📤 Evidencias</div>
+  <div class="nav-tab" onclick="nav('foro')">💬 Foro <span class="bc" id="bforo">4</span></div>
+  <div class="nav-tab" onclick="nav('cronograma')">📅 Cronograma</div>
+  <div class="nav-tab" onclick="nav('videos')">▶️ Videos <span class="bc" id="bvid">3</span></div>
+  <div class="nav-tab" onclick="nav('meet')">📹 Meet</div>
+  <div class="nav-tab" onclick="nav('perfil')">👤 Perfil</div>
+</div>
+
+<!-- =================== INICIO =================== -->
+<div id="page-inicio" class="page active">
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-badge">📚 Educación para el Trabajo</div>
+      <h2 id="hero-t">Bienvenidos al Aula Virtual 2026</h2>
+      <div id="hero-sub" style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px"></div>
+      <p id="hero-d">Selecciona tu grado arriba para ver el módulo correspondiente.</p>
+      <div class="hero-stats">
+        <div class="sc" onclick="nav('unidades')"><div class="n">4</div><div class="l">Unidades</div></div>
+        <div class="sc" onclick="nav('evaluaciones')"><div class="n" id="hs-ev">8</div><div class="l">Evaluaciones</div></div>
+        <div class="sc" onclick="nav('foro')"><div class="n">4</div><div class="l">Foros</div></div>
+        <div class="sc" onclick="nav('evidencias')"><div class="n" id="hs-ent">2</div><div class="l">Entregas</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="prof-card">
+        <div class="pa">MO</div>
+        <div class="pname">Prof. Manolo Ortiz Delgado</div>
+        <div style="font-size:11px;opacity:.75">Educación para el Trabajo · EPT</div>
+        <div class="pbg">
+          <span class="pb pb-g">📍 Shanao</span>
+          <span class="pb pb-b">💻 Computación</span>
+          <span class="pb pb-b">📱 Apps Móviles</span>
+        </div>
+        <div style="font-size:11px;opacity:.7;line-height:1.9">📧 mortiz@amadeosumaeta.edu.pe<br>🕐 Lun–Vie 7:00 – 1:00 PM</div>
+        <button class="btn-mp" onclick="aM('modalMsg')">✉️ Enviar Mensaje al Docente</button>
+        <button class="btn-mp" style="background:rgba(240,180,41,.2);border-color:rgba(240,180,41,.5)" onclick="openDrive()">📂 Carpeta de Materiales — Drive</button>
+      </div>
+    </div>
+  </div>
+</section>
+<main>
+  <h3 class="st">📢 Anuncios Recientes</h3>
+  <div class="anuncio" style="border-left-color:var(--mo)">
+    <div class="ai doc">👨‍🏫</div>
+    <div class="ac">
+      <h4>Nuevo material disponible — Unidad 2 · Sesión 6</h4>
+      <p>El docente publicó la guía PDF y video tutorial. Descárgalos en el Panel Docente.</p>
+      <div class="af">📅 26 mayo, 2026</div>
+      <div class="aa"><button class="btn btn-mo btn-sm" onclick="nav('docente')">👨‍🏫 Ver materiales</button></div>
+    </div>
+  </div>
+  <div class="anuncio" style="border-left-color:var(--do)">
+    <div class="ai warn">⚠️</div>
+    <div class="ac">
+      <h4>Plazo próximo — Práctica #3 · Vence 30 mayo</h4>
+      <p>Sube tu evidencia antes de las <strong>11:59 PM del viernes 30 de mayo</strong>.</p>
+      <div class="af">📅 24 mayo, 2026</div>
+      <div class="aa">
+        <button class="btn btn-do btn-sm" onclick="nav('evidencias')">📤 Subir evidencia</button>
+        <button class="btn btn-az btn-sm" onclick="nav('cronograma')">📅 Ver fechas</button>
+      </div>
+    </div>
+  </div>
+  <div class="anuncio">
+    <div class="ai info">📝</div>
+    <div class="ac">
+      <h4>Nuevas evaluaciones disponibles — 4° y 5° Grado</h4>
+      <p>Se publicaron 3 nuevos quizzes y 2 prácticas. ¡Ingrésalos antes del plazo!</p>
+      <div class="af">📅 22 mayo, 2026</div>
+      <div class="aa"><button class="btn btn-az btn-sm" onclick="nav('evaluaciones')">🧪 Ver evaluaciones</button></div>
+    </div>
+  </div>
+</main>
+</div>
+
+<!-- =================== DOCENTE =================== -->
+<div id="page-docente" class="page">
+<main>
+  <h3 class="st">👨‍🏫 Panel Docente — Subir Contenido</h3>
+  <div class="dpanel">
+    <div style="display:flex;align-items:center;gap:13px;margin-bottom:18px;flex-wrap:wrap">
+      <span style="font-size:26px">👨‍🏫</span>
+      <div><h3 style="font-size:16px;font-weight:800;color:var(--az)">Prof. Manolo Ortiz Delgado</h3><p style="font-size:12px;color:var(--gr)">Sube materiales para tus estudiantes</p></div>
+      <span class="dbadge" style="margin-left:auto">🔐 Acceso Docente</span>
+    </div>
+    <div class="dua" id="dropDoc" onclick="document.getElementById('fDoc').click()">
+      <div style="font-size:42px;margin-bottom:9px">📤</div>
+      <h4 style="font-size:15px;font-weight:800;color:var(--az);margin-bottom:6px">Arrastra archivos o haz clic</h4>
+      <p style="font-size:12px;color:var(--gr);margin-bottom:12px">Guías PDF, presentaciones, videos, actividades</p>
+      <button class="btn-ud" onclick="event.stopPropagation();document.getElementById('fDoc').click()">📁 Seleccionar Archivos</button>
+      <input type="file" id="fDoc" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp4,.jpg,.png,.zip">
+      <div style="margin-top:9px;font-size:10px;color:#999">
+        <span style="background:#f1f5f9;border:1px solid #ddd;border-radius:4px;padding:1px 6px;margin:2px">📄 PDF</span>
+        <span style="background:#f1f5f9;border:1px solid #ddd;border-radius:4px;padding:1px 6px;margin:2px">📝 Word</span>
+        <span style="background:#f1f5f9;border:1px solid #ddd;border-radius:4px;padding:1px 6px;margin:2px">📊 PPT/Excel</span>
+        <span style="background:#f1f5f9;border:1px solid #ddd;border-radius:4px;padding:1px 6px;margin:2px">🎥 Video</span>
+        <span style="background:#f1f5f9;border:1px solid #ddd;border-radius:4px;padding:1px 6px;margin:2px">📦 ZIP</span>
+      </div>
+    </div>
+    <div class="fp2" id="fpDoc"></div>
+    <div class="dform" id="docForm" style="display:none">
+      <h4 style="font-size:14px;font-weight:800;color:var(--az);margin-bottom:12px">📋 Información del Material</h4>
+      <div class="form-grid">
+        <div class="fg"><label>🎓 Grado destinatario</label>
+          <select id="d-gr"><option value="">— Seleccionar —</option><option>4° Secundaria</option><option>5° Secundaria</option><option>4° y 5° Secundaria</option></select></div>
+        <div class="fg"><label>📚 Unidad</label>
+          <select id="d-un"><option value="">— Seleccionar —</option><option>Unidad 1</option><option>Unidad 2</option><option>Unidad 3</option><option>Unidad 4</option><option>Todas las unidades</option></select></div>
+        <div class="fg"><label>📌 Tipo de recurso</label>
+          <select id="d-ti"><option value="">— Seleccionar —</option><option>📄 Guía PDF</option><option>🎥 Video Tutorial</option><option>💼 Plantilla / Ejercicio</option><option>📋 Actividad / Tarea</option><option>🧪 Evaluación</option><option>📊 Presentación</option><option>🔗 Enlace externo</option><option>📦 Material completo (ZIP)</option></select></div>
+        <div class="fg"><label>🔗 Enlace Drive (opcional)</label><input type="url" id="d-lk" placeholder="https://drive.google.com/…"></div>
+        <div class="fg" style="grid-column:1/-1"><label>📝 Título del material</label><input type="text" id="d-tt" placeholder="Ej: Guía N° 3 — Wireframes con Figma"></div>
+      </div>
+      <div class="fg" style="margin-bottom:12px"><label>💬 Descripción / Instrucciones</label><textarea id="d-ds" placeholder="Describe el contenido e instrucciones para los estudiantes…"></textarea></div>
+      <div style="display:flex;gap:9px;flex-wrap:wrap">
+        <button class="btn btn-mo" onclick="pubMat()">🚀 Publicar Material</button>
+        <button class="btn btn-out" onclick="canDoc()">✖ Cancelar</button>
+        <button class="btn btn-az btn-sm" onclick="openDrive()">📂 Abrir Drive</button>
+      </div>
+    </div>
+    <div id="matList" style="margin-top:18px">
+      <h4 style="font-size:14px;font-weight:800;color:var(--az);margin-bottom:11px">📦 Materiales Publicados</h4>
+      <div id="matItems">
+        <div class="mi"><span class="mi-ico">🎥</span><div class="mi-info"><h5>Video — Diseño de Wireframes con Figma</h5><p>4° Sec · Unidad 1 · Video Tutorial · 26 may 2026</p></div><div class="mi-acts"><button class="bdl" onclick="openDrive()">⬇️ Descargar</button><button class="bdel" onclick="delMat(this)">🗑️</button></div></div>
+        <div class="mi"><span class="mi-ico">📄</span><div class="mi-info"><h5>Guía PDF — Análisis de Requerimientos</h5><p>4° Sec · Unidad 1 · Guía PDF · 24 may 2026</p></div><div class="mi-acts"><button class="bdl" onclick="openDrive()">⬇️ Descargar</button><button class="bdel" onclick="delMat(this)">🗑️</button></div></div>
+        <div class="mi"><span class="mi-ico">📊</span><div class="mi-info"><h5>Presentación — Ensamblaje de PC: Componentes</h5><p>5° Sec · Unidad 1 · Presentación · 20 may 2026</p></div><div class="mi-acts"><button class="bdl" onclick="openDrive()">⬇️ Descargar</button><button class="bdel" onclick="delMat(this)">🗑️</button></div></div>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+
+<!-- =================== UNIDADES =================== -->
+<div id="page-unidades" class="page">
+<main>
+  <h3 class="st">📚 Unidades de Aprendizaje</h3>
+  <div class="gs" id="sec4u">
+    <div class="gh"><span class="gb gb4">📱 4° Grado</span><div><h4 style="font-size:14px;font-weight:800">Desarrollo de Apps Móviles y Videojuegos</h4><p style="font-size:11px;color:var(--gr)">72 horas pedagógicas · 9 semanas × 8 horas</p></div></div>
+    <div class="ug">
+      <div class="uc act"><div class="un">Unidad 1 · EN CURSO</div><div class="ut">Habilidades Técnicas: Apps y Videojuegos</div><div class="ud">Wireframes, UI/UX, programación, multimedia, testeo y pitch.</div><div style="margin-top:7px"><span class="tt">Wireframes</span><span class="tt">UI/UX</span><span class="tt">Programación</span><span class="tt">Pitch</span></div><div class="pb"><div class="pf" style="width:57%"></div></div><div class="pl">▶️ 4/7 temas completados</div><button class="ub" onclick="ses4(1)">▶️ Ver Sesiones</button></div>
+      <div class="uc"><div class="un">Unidad 2</div><div class="ut">Habilidades Previas y Contexto Digital</div><div class="ud">Lógica, diseño, trabajo colaborativo e impacto sociotecnológico.</div><div style="margin-top:7px"><span class="tt">Lógica</span><span class="tt">Diseño</span><span class="tt">Teamwork</span></div><div class="pb"><div class="pf" style="width:0%"></div></div><div class="pl">🔒 Inicia 25 mayo 2026</div><button class="ub" onclick="ses4(2)">📋 Ver Contenidos</button></div>
+      <div class="uc"><div class="un">Unidad 3</div><div class="ut">Interfaces y Código del Usuario</div><div class="ud">Interfaces intuitivas. Ejecución de códigos y contraseñas en el aplicativo.</div><div style="margin-top:7px"><span class="tt">Interfaces</span><span class="tt">Código</span><span class="tt">UX</span></div><div class="pb"><div class="pf" style="width:0%"></div></div><div class="pl">🔒 Inicia 10 agosto 2026</div><button class="ub" disabled>🔒 Bloqueada</button></div>
+      <div class="uc"><div class="un">Unidad 4</div><div class="ut">Publicidad con IA y Emprendimiento</div><div class="ud">Diseño publicitario con IA, Design Thinking y Lean Canvas.</div><div style="margin-top:7px"><span class="tt">IA</span><span class="tt">Design Thinking</span><span class="tt">Lean Canvas</span></div><div class="pb"><div class="pf" style="width:0%"></div></div><div class="pl">🔒 Inicia 19 oct. 2026</div><button class="ub" disabled>🔒 Bloqueada</button></div>
+    </div>
+  </div>
+  <div class="gs" id="sec5u">
+    <div class="gh"><span class="gb gb5">🖥️ 5° Grado</span><div><h4 style="font-size:14px;font-weight:800">Ensamblaje, Reparación y Redes Informáticas</h4><p style="font-size:11px;color:var(--gr)">PC · Tablet · Laptop · Redes · Seguridad</p></div></div>
+    <div class="ug">
+      <div class="uc act pur"><div class="un p">Unidad 1 · EN CURSO</div><div class="ut">Reconocimiento y Ensamblaje de Equipos</div><div class="ud">Componentes, BIOS/UEFI, SO, mantenimiento, redes y seguridad.</div><div style="margin-top:7px"><span class="tt p">Hardware</span><span class="tt p">BIOS</span><span class="tt p">Ensamblaje</span><span class="tt p">Redes</span></div><div class="pb"><div class="pf p" style="width:28%"></div></div><div class="pl">▶️ 2/7 actividades</div><button class="ub p" onclick="ses5(1)">▶️ Ver Sesiones</button></div>
+      <div class="uc pur"><div class="un p">Unidad 2</div><div class="ut">BIOS, Sistemas Operativos y Mantenimiento</div><div class="ud">Configuración, instalación SO, diagnóstico, troubleshooting y documentación.</div><div style="margin-top:7px"><span class="tt p">BIOS</span><span class="tt p">SO</span><span class="tt p">Diagnóstico</span></div><div class="pb"><div class="pf p" style="width:0%"></div></div><div class="pl">🔒 Inicia 25 mayo 2026</div><button class="ub p" onclick="ses5(2)">📋 Ver Contenidos</button></div>
+      <div class="uc pur"><div class="un p">Unidad 3</div><div class="ut">Redes Cableadas e Inalámbricas</div><div class="ud">Diseño, instalación, configuración y diagnóstico de redes.</div><div style="margin-top:7px"><span class="tt p">Redes</span><span class="tt p">WiFi</span><span class="tt p">Seguridad</span></div><div class="pb"><div class="pf p" style="width:0%"></div></div><div class="pl">🔒 Inicia 10 agosto 2026</div><button class="ub p" disabled>🔒 Bloqueada</button></div>
+      <div class="uc pur"><div class="un p">Unidad 4</div><div class="ut">Seguridad Informática y Certificación</div><div class="ud">Seguridad, IA, protección de datos y cierre para certificación técnica.</div><div style="margin-top:7px"><span class="tt p">Seguridad</span><span class="tt p">IA</span><span class="tt p">Certificación</span></div><div class="pb"><div class="pf p" style="width:0%"></div></div><div class="pl">🔒 Inicia 19 oct. 2026</div><button class="ub p" disabled>🔒 Bloqueada</button></div>
+    </div>
+  </div>
+</main>
+</div>
+
+<!-- =================== EVALUACIONES =================== -->
+<div id="page-evaluaciones" class="page">
+<main>
+  <h3 class="st">🧪 Evaluaciones y Cuestionarios</h3>
+  <!-- 4° -->
+  <div class="gs" id="sec4e">
+    <div class="gh"><span class="gb gb4">📱 4° Grado — Apps y Videojuegos</span></div>
+    <div class="ec"><div class="eh"><div class="ei q">🧪</div><div><h4 style="font-size:13px;font-weight:700">Quiz 1 — Wireframes y Arquitectura de la Información</h4><p style="font-size:11px;color:var(--gr)">10 preguntas · Tema 1 · Unidad 1</p></div></div><div class="em"><span class="ech">⏱️ 20 min</span><span class="ech">📅 Disponible</span><span class="ech">🎯 20 pts</span></div><button class="be" onclick="abrirEval('q4u1')">▶️ Iniciar Quiz</button></div>
+    <div class="ec"><div class="eh"><div class="ei q">🧪</div><div><h4 style="font-size:13px;font-weight:700">Quiz 2 — UI/UX y Diseño de Interfaz</h4><p style="font-size:11px;color:var(--gr)">8 preguntas · Tema 3 · Unidad 1</p></div></div><div class="em"><span class="ech">⏱️ 15 min</span><span class="ech">📅 Disponible</span><span class="ech">🎯 20 pts</span></div><button class="be" onclick="abrirEval('q4u1b')">▶️ Iniciar Quiz</button></div>
+    <div class="ec"><div class="eh"><div class="ei q">🧪</div><div><h4 style="font-size:13px;font-weight:700">Quiz 3 — Lógica de Programación</h4><p style="font-size:11px;color:var(--gr)">8 preguntas · Tema 4 · Unidad 1</p></div></div><div class="em"><span class="ech">⏱️ 15 min</span><span class="ech">📅 Disponible</span><span class="ech">🎯 20 pts</span></div><button class="be" onclick="abrirEval('q4u1c')">▶️ Iniciar Quiz</button></div>
+    <div class="ec"><div class="eh"><div class="ei pr">💻</div><div><h4 style="font-size:13px;font-weight:700">Práctica — Diseño de Prototipo (Figma/Canva)</h4><p style="font-size:11px;color:var(--gr)">Crear wireframe de tu app · Temas 1–3</p></div></div><div class="em"><span class="ech">📅 Vence: 30 mayo</span><span class="ech">📤 Subir archivo</span><span class="ech">🎯 20 pts</span></div><button class="be" onclick="nav('evidencias');showToast('📤 Sube tu archivo de prototipo','info')">📤 Entregar Práctica</button></div>
+    <div class="ec"><div class="eh"><div class="ei q">🧪</div><div><h4 style="font-size:13px;font-weight:700">Quiz 4 — Testing, Debugging y Validación</h4><p style="font-size:11px;color:var(--gr)">6 preguntas · Temas 5 y 6 · Unidad 1</p></div></div><div class="em"><span class="ech">⏱️ 12 min</span><span class="ech">📅 Disponible</span><span class="ech">🎯 20 pts</span></div><button class="be" onclick="abrirEval('q4u1d')">▶️ Iniciar Quiz</button></div>
+    <div class="ec"><div class="eh"><div class="ei q">🧪</div><div><h4 style="font-size:13px;font-weight:700">Quiz 5 — Pitch y Comunicación del Producto</h4><p style="font-size:11px;color:var(--gr)">6 preguntas · Tema 7 · Unidad 1</p></div></div><div class="em"><span class="ech">⏱️ 10 min</span><span class="ech">📅 Disponible</span><span class="ech">🎯 20 pts</span></div><button class="be" onclick="abrirEval('q4u1e')">▶️ Iniciar Quiz</button></div>
+    <div class="ec"><div class="eh"><div class="ei pr">💻</div><div><h4 style="font-size:13px;font-weight:700">Práctica — Diseño de Prototipo (Figma/Canva)</h4><p style="font-size:11px;color:var(--gr)">Crear wireframe de tu app · Temas 1–3</p></div></div><div class="em"><span class="ech">📅 Vence: 30 mayo</span><span class="ech">📤 Subir archivo</span><span class="ech">🎯 20 pts</span></div><button class="be" onclick="nav('evidencias');showToast('📤 Sube tu archivo de prototipo','info')">📤 Entregar Práctica</button></div>
+    <div class="ec"><div class="eh"><div class="ei py">🚀</div><div><h4 style="font-size:13px;font-weight:700">Proyecto Final — Pitch Digital</h4><p style="font-size:11px;color:var(--gr)">Presentación del prototipo funcional · Tema 7</p></div></div><div class="em"><span class="ech">📅 Vence: 15 mayo</span><span class="ech" style="background:#e8fce8;color:#166534">✅ Entregado</span><span class="ech">🎯 Nota: 17</span></div><button class="be ok" onclick="showToast('✅ Proyecto entregado — Nota: 17/20','success')">✅ Ver calificación: 17</button></div>
+  </div>
+  <!-- 5° -->
+  <div class="gs" id="sec5e">
+    <div class="gh"><span class="gb gb5">🖥️ 5° Grado — Ensamblaje y Redes</span></div>
+    <div class="ec"><div class="eh"><div class="ei d">📋</div><div><h4 style="font-size:13px;font-weight:700">Evaluación Diagnóstica — Semana 2</h4><p style="font-size:11px;color:var(--gr)">Conocimientos previos sobre hardware y computadoras</p></div></div><div class="em"><span class="ech">⏱️ 15 min</span><span class="ech">📅 Disponible</span><span class="ech">Sin nota (diagnóstico)</span></div><button class="be p" onclick="abrirEval('diag5')">▶️ Iniciar Diagnóstico</button></div>
+    <div class="ec"><div class="eh"><div class="ei q">🧪</div><div><h4 style="font-size:13px;font-weight:700">Quiz 1 — Componentes Internos y Periféricos</h4><p style="font-size:11px;color:var(--gr)">8 preguntas · Unidad 1 · Semana 2</p></div></div><div class="em"><span class="ech">⏱️ 15 min</span><span class="ech">📅 Disponible</span><span class="ech">🎯 20 pts</span></div><button class="be p" onclick="abrirEval('q5u1')">▶️ Iniciar Quiz</button></div>
+    <div class="ec"><div class="eh"><div class="ei q">🧪</div><div><h4 style="font-size:13px;font-weight:700">Quiz 2 — BIOS/UEFI y Sistemas Operativos</h4><p style="font-size:11px;color:var(--gr)">8 preguntas · Unidad 2</p></div></div><div class="em"><span class="ech">⏱️ 15 min</span><span class="ech co-p" style="padding:3px 9px;border-radius:9px">⏳ Inicia 25 mayo</span><span class="ech">🎯 20 pts</span></div><button class="be p" onclick="abrirEval('q5u2')">▶️ Iniciar Quiz</button></div>
+    <div class="ec"><div class="eh"><div class="ei pr">🔧</div><div><h4 style="font-size:13px;font-weight:700">Práctica — Identificación de Componentes</h4><p style="font-size:11px;color:var(--gr)">Foto de práctica con 10 componentes identificados</p></div></div><div class="em"><span class="ech">📅 Vence: 30 mayo</span><span class="ech">📸 Subir foto</span><span class="ech">🎯 20 pts</span></div><button class="be p" onclick="nav('evidencias');showToast('📸 Sube la foto de tu práctica','info')">📤 Entregar</button></div>
+    <div class="ec"><div class="eh"><div class="ei q">🧪</div><div><h4 style="font-size:13px;font-weight:700">Quiz 3 — Troubleshooting y Mantenimiento</h4><p style="font-size:11px;color:var(--gr)">10 preguntas · Unidad 2 · Temas 4, 7 y 8</p></div></div><div class="em"><span class="ech">⏱️ 20 min</span><span class="ech">📅 Disponible</span><span class="ech">🎯 20 pts</span></div><button class="be p" onclick="abrirEval('q5u2b')">▶️ Iniciar Quiz</button></div>
+  </div>
+  <div style="background:#fff;border-radius:13px;padding:18px;border:1.5px solid #dce8ff;box-shadow:0 2px 8px rgba(10,42,94,.05)">
+    <h4 style="font-size:14px;font-weight:800;color:var(--az);margin-bottom:10px">💬 ¿Dudas sobre las evaluaciones?</h4>
+    <p style="font-size:12px;color:var(--gr);margin-bottom:10px">Consulta al docente o al foro antes del plazo.</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <button class="btn btn-az" onclick="nav('foro')">💬 Ir al Foro</button>
+      <button class="btn btn-out" onclick="aM('modalMsg')">✉️ Consultar al Docente</button>
+    </div>
+  </div>
+</main>
+</div>
+
+<!-- =================== EVIDENCIAS =================== -->
+<div id="page-evidencias" class="page">
+<main>
+  <h3 class="st">📤 Subir Evidencias</h3>
+  <div class="drb">
+    <span style="font-size:26px">📂</span>
+    <div class="dt"><strong>Carpeta de Materiales — Google Drive</strong><span>Descarga plantillas, guías y archivos de práctica</span></div>
+    <button class="btn-dr" onclick="openDrive()">📂 Abrir Drive</button>
+  </div>
+  <div style="background:#fff;border-radius:14px;border:2px solid var(--aza);padding:24px;margin-bottom:22px;box-shadow:0 4px 16px rgba(45,116,212,.07)">
+    <p style="font-size:12px;color:var(--gr);margin-bottom:11px">Sube tus prácticas, proyectos, capturas y evidencias de aprendizaje.</p>
+    <div class="ua" id="dropZone" onclick="document.getElementById('fInp').click()">
+      <div style="font-size:40px;margin-bottom:9px">📁</div>
+      <h4 style="font-size:15px;font-weight:800;color:var(--az);margin-bottom:5px">Arrastra archivos aquí o haz clic</h4>
+      <p style="font-size:12px;color:var(--gr);margin-bottom:12px">Trabajos, capturas, fotos, videos o cualquier evidencia</p>
+      <button class="btn-up" onclick="event.stopPropagation();document.getElementById('fInp').click()">☁️ Seleccionar Archivos</button>
+      <input type="file" id="fInp" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.mp4,.zip">
+      <div style="margin-top:9px;font-size:10px;color:#999">📄 PDF · 📝 Word · 🖼️ Imágenes · 🎥 Video · 📦 ZIP</div>
+    </div>
+    <div class="fp2" id="fpEv"></div>
+    <div class="ef" id="efForm">
+      <h4 style="font-size:14px;font-weight:800;color:var(--az);margin-bottom:11px">📋 Datos de la Evidencia</h4>
+      <div class="form-grid">
+        <div class="fg"><label>👤 Nombre completo</label><input type="text" id="i-nom" placeholder="Ej: Juan Pérez Sánchez"></div>
+        <div class="fg"><label>🎓 Grado y Sección</label>
+          <select id="i-gr"><option value="">— Seleccionar —</option><option>4° Secundaria — A</option><option>4° Secundaria — B</option><option>5° Secundaria — A</option><option>5° Secundaria — B</option></select></div>
+        <div class="fg"><label>📚 Unidad</label>
+          <select id="i-un"><option value="">— Seleccionar —</option>
+            <option>4° — U1: Apps y Videojuegos</option><option>4° — U2: Habilidades Previas</option>
+            <option>4° — U3: Interfaces y Código</option><option>4° — U4: Publicidad e IA</option>
+            <option>5° — U1: Ensamblaje</option><option>5° — U2: BIOS y Mantenimiento</option>
+            <option>5° — U3: Redes</option><option>5° — U4: Seguridad</option></select></div>
+        <div class="fg"><label>📌 Tipo</label>
+          <select id="i-ti"><option value="">— Seleccionar —</option><option>Práctica de clase</option><option>Tarea en casa</option><option>Evaluación práctica</option><option>Proyecto parcial</option><option>Pitch / Proyecto final</option><option>Captura de pantalla</option><option>Foto de práctica</option><option>Otro</option></select></div>
+      </div>
+      <div class="fg" style="margin-bottom:11px"><label>💬 Descripción (opcional)</label><textarea id="i-ds" placeholder="Describe brevemente tu evidencia…"></textarea></div>
+      <div style="display:flex;gap:9px">
+        <button class="btn-env" onclick="envEv()">✅ Enviar Evidencia</button>
+        <button class="btn-can" onclick="canEv()">✖ Cancelar</button>
+      </div>
+    </div>
+  </div>
+  <h3 class="st">📋 Mis Entregas</h3>
+  <div id="entList">
+    <div class="eit"><div style="font-size:18px">🚀</div><div style="flex:1"><h5 style="font-size:12px;font-weight:700">Pitch — App "EcoShanao" (Prototipo Final)</h5><p style="font-size:10px;color:var(--gr)">4° — U1 · Proyecto final</p></div><span class="se">✅ Entregado</span><div style="font-size:10px;color:#aaa;text-align:right">24 may<br>10:30 AM</div></div>
+    <div class="eit"><div style="font-size:18px">🖼️</div><div style="flex:1"><h5 style="font-size:12px;font-weight:700">Captura — Wireframe en Figma</h5><p style="font-size:10px;color:var(--gr)">4° — U1 · Tema 1 · Práctica de clase</p></div><span class="sr">🔍 En revisión</span><div style="font-size:10px;color:#aaa;text-align:right">20 may<br>04:15 PM</div></div>
+    <div class="eit"><div style="font-size:18px">📋</div><div style="flex:1"><h5 style="font-size:12px;font-weight:700">Práctica #3 — Correspondencia</h5><p style="font-size:10px;color:var(--gr)">4° — U2 · <strong style="color:var(--ro)">Vence: 30 mayo</strong></p></div><span class="sp">⏳ Pendiente</span><div style="font-size:10px;color:#aaa;text-align:right">30 mayo</div></div>
+  </div>
+</main>
+</div>
+
+<!-- =================== FORO =================== -->
+<div id="page-foro" class="page">
+<main>
+  <h3 class="st">💬 Foro de Consultas</h3>
+  <div class="fn">
+    <h4 style="font-size:13px;font-weight:800;color:var(--az);margin-bottom:11px">✍️ Nueva Pregunta o Aporte</h4>
+    <div class="form-grid" style="margin-bottom:9px">
+      <div class="fg"><label>Nombre</label><input type="text" id="for-a" placeholder="Tu nombre completo"></div>
+      <div class="fg"><label>Tema</label>
+        <select id="for-t">
+          <option>4° — U1: Apps y Videojuegos</option><option>4° — U2: Habilidades previas</option>
+          <option>5° — U1: Ensamblaje</option><option>5° — U2: BIOS y Mantenimiento</option>
+          <option>General / Evaluaciones</option>
+        </select>
+      </div>
+    </div>
+    <textarea id="for-tx" placeholder="Escribe tu pregunta, duda o aporte…" style="width:100%;padding:9px 11px;border:1.5px solid #c3d8f5;border-radius:10px;font-family:'Nunito',sans-serif;font-size:12px;resize:vertical;min-height:70px;"></textarea>
+    <div style="display:flex;gap:9px;margin-top:9px">
+      <button class="btn btn-az" onclick="pubForo()">📢 Publicar</button>
+      <button class="btn btn-out" onclick="document.getElementById('for-tx').value='';document.getElementById('for-a').value=''">🗑️ Limpiar</button>
+    </div>
+  </div>
+  <div id="foroList"></div>
+</main>
+</div>
+
+<!-- =================== CRONOGRAMA =================== -->
+<div id="page-cronograma" class="page">
+<main>
+  <h3 class="st">📅 Cronograma Anual 2026</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:11px;margin-bottom:20px">
+    <div style="background:#fff;border-radius:13px;padding:15px;border-left:5px solid var(--azc);box-shadow:0 2px 8px rgba(10,42,94,.06)"><div style="font-size:10px;font-weight:700;color:var(--azc);text-transform:uppercase;margin-bottom:5px">Unidad 1 · Bimestre I</div><div style="font-size:12px;font-weight:800">16 marzo – 15 mayo</div><div style="font-size:11px;color:var(--gr)">9 semanas lectivas</div><span class="co co-ok" style="margin-top:6px;display:inline-block">✅ Finalizado</span></div>
+    <div style="background:#fff;border-radius:13px;padding:15px;border-left:5px solid var(--do);box-shadow:0 2px 8px rgba(10,42,94,.06)"><div style="font-size:10px;font-weight:700;color:#b45309;text-transform:uppercase;margin-bottom:5px">Unidad 2 · Bimestre II</div><div style="font-size:12px;font-weight:800">25 mayo – 24 julio</div><div style="font-size:11px;color:var(--gr)">9 sem. · Vac: 27 jul – 7 ago</div><span class="co co-h" style="margin-top:6px;display:inline-block">▶️ En curso</span></div>
+    <div style="background:#fff;border-radius:13px;padding:15px;border-left:5px solid var(--mo);box-shadow:0 2px 8px rgba(10,42,94,.06)"><div style="font-size:10px;font-weight:700;color:var(--mo);text-transform:uppercase;margin-bottom:5px">Unidad 3 · Bimestre III</div><div style="font-size:12px;font-weight:800">10 agosto – 9 octubre</div><div style="font-size:11px;color:var(--gr)">9 sem. · Gestión: 12–16 oct</div><span class="co co-x" style="margin-top:6px;display:inline-block">🔒 Próximo</span></div>
+    <div style="background:#fff;border-radius:13px;padding:15px;border-left:5px solid var(--ve);box-shadow:0 2px 8px rgba(10,42,94,.06)"><div style="font-size:10px;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:5px">Unidad 4 · Bimestre IV</div><div style="font-size:12px;font-weight:800">19 octubre – 18 diciembre</div><div style="font-size:11px;color:var(--gr)">9 semanas · Certificación final</div><span class="co co-x" style="margin-top:6px;display:inline-block">🔒 Próximo</span></div>
+  </div>
+  <div class="sbr">
+    <span>🔍</span>
+    <input type="text" id="cronQ" placeholder="Buscar actividad, grado o unidad…" oninput="filCron()">
+    <button class="btn btn-az btn-sm" onclick="filCron()">Buscar</button>
+    <select id="cronG" style="border:1.5px solid #ddd;border-radius:8px;padding:5px 9px;font-family:'Nunito',sans-serif;font-size:11px;" onchange="filCron()">
+      <option value="">Todos los grados</option><option value="4°">4° Grado</option><option value="5°">5° Grado</option>
+    </select>
+    <button class="btn btn-out btn-sm" onclick="openDrive()">📂 Drive</button>
+  </div>
+  <div style="overflow-x:auto">
+    <table class="ct"><thead><tr><th>#</th><th>Período</th><th>Grado</th><th>Unidad</th><th>Actividad Principal</th><th>Estado</th></tr></thead>
+    <tbody id="cronTb"></tbody></table>
+  </div>
+</main>
+</div>
+
+<!-- =================== VIDEOS =================== -->
+<div id="page-videos" class="page">
+<main>
+  <h3 class="st">▶️ Videos de YouTube</h3>
+
+  <!-- Panel para agregar video (docente) -->
+  <div class="dpanel" style="border-color:var(--ro);">
+    <div style="display:flex;align-items:center;gap:13px;margin-bottom:18px;flex-wrap:wrap">
+      <span style="font-size:26px">🎬</span>
+      <div><h3 style="font-size:16px;font-weight:800;color:var(--az)">Agregar Video de YouTube</h3>
+      <p style="font-size:12px;color:var(--gr)">Pega el enlace o ID del video y completa los datos</p></div>
+      <span style="background:linear-gradient(135deg,var(--ro),#f97316);color:#fff;padding:5px 14px;border-radius:18px;font-size:11px;font-weight:700;margin-left:auto">🔐 Docente</span>
+    </div>
+    <div class="form-grid">
+      <div class="fg" style="grid-column:1/-1">
+        <label>🔗 Enlace o ID del video de YouTube</label>
+        <input type="text" id="yt-url" placeholder="Ej: https://www.youtube.com/watch?v=dQw4w9WgXcQ  o solo  dQw4w9WgXcQ">
+      </div>
+      <div class="fg">
+        <label>📝 Título del video</label>
+        <input type="text" id="yt-title" placeholder="Ej: Tutorial — Diseño de Wireframes con Figma">
+      </div>
+      <div class="fg">
+        <label>🎓 Grado</label>
+        <select id="yt-grado">
+          <option value="">— Seleccionar —</option>
+          <option>4° Secundaria</option><option>5° Secundaria</option><option>4° y 5° Secundaria</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>📚 Unidad</label>
+        <select id="yt-unidad">
+          <option value="">— Seleccionar —</option>
+          <option>Unidad 1</option><option>Unidad 2</option><option>Unidad 3</option><option>Unidad 4</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>📌 Tema</label>
+        <input type="text" id="yt-tema" placeholder="Ej: UI/UX · Tema 3">
+      </div>
+      <div class="fg" style="grid-column:1/-1">
+        <label>💬 Descripción breve</label>
+        <textarea id="yt-desc" placeholder="¿Qué aprenderán los estudiantes con este video?"></textarea>
+      </div>
+    </div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:4px">
+      <button class="btn" style="background:linear-gradient(135deg,var(--ro),#f97316);color:#fff;box-shadow:0 3px 10px rgba(239,68,68,.3)" onclick="agregarVideo()">➕ Agregar Video</button>
+      <button class="btn btn-out" onclick="limpiarVideoForm()">🗑️ Limpiar</button>
+    </div>
+  </div>
+
+  <!-- Filtros -->
+  <div class="sbr" style="margin-bottom:18px">
+    <span>🔍</span>
+    <input type="text" id="vidQ" placeholder="Buscar video por título o tema…" oninput="filtrarVideos()">
+    <select id="vidG" style="border:1.5px solid #ddd;border-radius:8px;padding:5px 9px;font-family:'Nunito',sans-serif;font-size:11px;" onchange="filtrarVideos()">
+      <option value="">Todos los grados</option><option value="4°">4° Grado</option><option value="5°">5° Grado</option>
+    </select>
+    <select id="vidU" style="border:1.5px solid #ddd;border-radius:8px;padding:5px 9px;font-family:'Nunito',sans-serif;font-size:11px;" onchange="filtrarVideos()">
+      <option value="">Todas las unidades</option>
+      <option value="Unidad 1">Unidad 1</option><option value="Unidad 2">Unidad 2</option>
+      <option value="Unidad 3">Unidad 3</option><option value="Unidad 4">Unidad 4</option>
+    </select>
+  </div>
+
+  <!-- Lista de videos con reproductor integrado -->
+  <div id="videoGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;"></div>
+</main>
+</div>
+
+<!-- =================== MEET =================== -->
+<div id="page-meet" class="page">
+<main>
+  <h3 class="st">📹 Reuniones — Google Meet</h3>
+
+  <!-- Crear reunión (docente) -->
+  <div class="dpanel" style="border-color:#00897b;box-shadow:0 4px 20px rgba(0,137,123,.12);">
+    <div style="display:flex;align-items:center;gap:13px;margin-bottom:18px;flex-wrap:wrap">
+      <span style="font-size:26px">📹</span>
+      <div><h3 style="font-size:16px;font-weight:800;color:var(--az)">Crear o Programar Reunión</h3>
+      <p style="font-size:12px;color:var(--gr)">El docente crea la reunión y comparte el enlace con los estudiantes</p></div>
+      <span style="background:linear-gradient(135deg,#00897b,#26a69a);color:#fff;padding:5px 14px;border-radius:18px;font-size:11px;font-weight:700;margin-left:auto">🔐 Docente</span>
+    </div>
+    <div class="form-grid">
+      <div class="fg">
+        <label>📝 Título de la reunión</label>
+        <input type="text" id="meet-titulo" placeholder="Ej: Clase virtual — UI/UX · Unidad 1">
+      </div>
+      <div class="fg">
+        <label>🎓 Grado y Sección</label>
+        <select id="meet-grado">
+          <option value="">— Seleccionar —</option>
+          <option>4° Secundaria — A</option><option>4° Secundaria — B</option>
+          <option>5° Secundaria — A</option><option>5° Secundaria — B</option>
+          <option>4° y 5° Secundaria (todos)</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>📅 Fecha</label>
+        <input type="date" id="meet-fecha">
+      </div>
+      <div class="fg">
+        <label>🕐 Hora de inicio</label>
+        <input type="time" id="meet-hora">
+      </div>
+      <div class="fg">
+        <label>⏱️ Duración estimada</label>
+        <select id="meet-dur">
+          <option>30 minutos</option><option>45 minutos</option>
+          <option selected>1 hora</option><option>1 hora 30 min</option><option>2 horas</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>🔗 Enlace Meet (pega el tuyo o se generará uno)</label>
+        <input type="url" id="meet-link" placeholder="https://meet.google.com/xxx-xxxx-xxx">
+      </div>
+      <div class="fg" style="grid-column:1/-1">
+        <label>💬 Descripción / Tema a tratar</label>
+        <textarea id="meet-desc" placeholder="Ej: Revisaremos los wireframes de la Unidad 1. Traer el prototipo avanzado en Figma."></textarea>
+      </div>
+    </div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:4px">
+      <button class="btn" style="background:linear-gradient(135deg,#00897b,#26a69a);color:#fff;box-shadow:0 3px 10px rgba(0,137,123,.3)" onclick="crearReunion()">📹 Crear Reunión</button>
+      <button class="btn" style="background:linear-gradient(135deg,#1565c0,#1e88e5);color:#fff;box-shadow:0 3px 10px rgba(21,101,192,.3)" onclick="abrirMeetNuevo()">🚀 Abrir Google Meet ahora</button>
+      <button class="btn btn-out" onclick="limpiarMeetForm()">🗑️ Limpiar</button>
+    </div>
+  </div>
+
+  <!-- Reuniones programadas -->
+  <h3 class="st" style="margin-top:8px">📋 Reuniones Programadas</h3>
+  <div id="meetList">
+    <!-- Reuniones de ejemplo precargadas -->
+    <div class="meet-card" id="meet-ej1">
+      <div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap">
+        <div style="width:54px;height:54px;background:linear-gradient(135deg,#00897b,#26a69a);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">📹</div>
+        <div style="flex:1">
+          <h4 style="font-size:14px;font-weight:800;color:var(--az);margin-bottom:4px">Clase Virtual — Wireframes y Arquitectura de la Información</h4>
+          <p style="font-size:11px;color:var(--gr);margin-bottom:7px">📚 4° Secundaria (A y B) · Unidad 1 · Tema 1</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+            <span style="background:#e8f5e9;color:#2e7d32;padding:3px 10px;border-radius:9px;font-size:10px;font-weight:700">📅 Lun 27 mayo 2026</span>
+            <span style="background:#e3f2fd;color:#1565c0;padding:3px 10px;border-radius:9px;font-size:10px;font-weight:700">🕐 8:00 AM · 1 hora</span>
+            <span style="background:#fff3e0;color:#e65100;padding:3px 10px;border-radius:9px;font-size:10px;font-weight:700">👨‍🏫 Prof. Manolo Ortiz</span>
+          </div>
+          <p style="font-size:11px;color:var(--gr);margin-bottom:10px">📝 Revisaremos los wireframes de cada equipo. Traer avance en Figma o papel. Se hará retroalimentación grupal.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" style="background:linear-gradient(135deg,#00897b,#26a69a);color:#fff;font-size:11px;padding:7px 16px" onclick="unirseReunion('https://meet.google.com/new')">📹 Unirse a la reunión</button>
+            <button class="btn btn-out" style="font-size:11px;padding:7px 14px" onclick="copiarLink('https://meet.google.com/new')">📋 Copiar enlace</button>
+            <button class="btn" style="background:#fee2e2;color:var(--ro);border:none;font-size:11px;padding:7px 12px" onclick="eliminarReunion('meet-ej1')">🗑️ Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="meet-card" id="meet-ej2" style="margin-top:12px">
+      <div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap">
+        <div style="width:54px;height:54px;background:linear-gradient(135deg,#1565c0,#1e88e5);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">🖥️</div>
+        <div style="flex:1">
+          <h4 style="font-size:14px;font-weight:800;color:var(--az);margin-bottom:4px">Clase Virtual — Ensamblaje de PC: Práctica Guiada</h4>
+          <p style="font-size:11px;color:var(--gr);margin-bottom:7px">🖥️ 5° Secundaria (A y B) · Unidad 1 · Ensamblaje</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+            <span style="background:#e8f5e9;color:#2e7d32;padding:3px 10px;border-radius:9px;font-size:10px;font-weight:700">📅 Mié 29 mayo 2026</span>
+            <span style="background:#e3f2fd;color:#1565c0;padding:3px 10px;border-radius:9px;font-size:10px;font-weight:700">🕐 10:00 AM · 1h 30min</span>
+            <span style="background:#fff3e0;color:#e65100;padding:3px 10px;border-radius:9px;font-size:10px;font-weight:700">👨‍🏫 Prof. Manolo Ortiz</span>
+          </div>
+          <p style="font-size:11px;color:var(--gr);margin-bottom:10px">📝 Práctica de ensamblaje paso a paso. Traer componentes identificados de la sesión anterior. Se usará video en tiempo real.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" style="background:linear-gradient(135deg,#1565c0,#1e88e5);color:#fff;font-size:11px;padding:7px 16px" onclick="unirseReunion('https://meet.google.com/new')">📹 Unirse a la reunión</button>
+            <button class="btn btn-out" style="font-size:11px;padding:7px 14px" onclick="copiarLink('https://meet.google.com/new')">📋 Copiar enlace</button>
+            <button class="btn" style="background:#fee2e2;color:var(--ro);border:none;font-size:11px;padding:7px 12px" onclick="eliminarReunion('meet-ej2')">🗑️ Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unirse con enlace -->
+  <div style="background:#fff;border-radius:14px;border:2px dashed #00897b;padding:22px;margin-top:18px;box-shadow:0 2px 10px rgba(0,137,123,.07)">
+    <h4 style="font-size:14px;font-weight:800;color:var(--az);margin-bottom:10px">🔗 Unirse con un Enlace</h4>
+    <p style="font-size:12px;color:var(--gr);margin-bottom:12px">¿Tienes un enlace de Meet? Pégalo aquí para unirte directamente.</p>
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <input type="url" id="meet-join-url" placeholder="https://meet.google.com/xxx-xxxx-xxx" 
+             style="flex:1;padding:9px 13px;border:1.5px solid #c3d8f5;border-radius:10px;font-family:'Nunito',sans-serif;font-size:13px;min-width:220px">
+      <button class="btn" style="background:linear-gradient(135deg,#00897b,#26a69a);color:#fff" onclick="unirseConEnlace()">📹 Unirse</button>
+    </div>
+  </div>
+</main>
+</div>
+
+<!-- =================== PERFIL =================== -->
+<div id="page-perfil" class="page">
+<main>
+  <h3 class="st">👤 Mi Perfil</h3>
+  <div class="pcard">
+    <div class="pav2" id="pAv">👤</div>
+    <div style="flex:1">
+      <h3 style="font-size:19px;font-weight:900;color:var(--az)" id="pNom">Estudiante</h3>
+      <p style="font-size:12px;color:var(--gr)" id="pGr">— Grado y sección —</p>
+      <p style="font-size:11px;color:var(--azc);font-weight:700">📍 I.E. N° 0302 Amadeo Zumaeta Valles · Shanao</p>
+      <div class="ps">
+        <div class="psi"><div class="pn" id="p-ent">2</div><div class="pk">Entregas</div></div>
+        <div class="psi"><div class="pn" id="p-pend">1</div><div class="pk">Pendientes</div></div>
+        <div class="psi"><div class="pn" id="p-prom">15.5</div><div class="pk">Promedio</div></div>
+      </div>
+      <div style="display:flex;gap:9px;margin-top:12px;flex-wrap:wrap">
+        <button class="btn btn-az" onclick="aM('modalPer')">✏️ Editar Perfil</button>
+        <button class="btn btn-out" onclick="nav('evidencias')">📤 Mis Evidencias</button>
+        <button class="btn btn-out" onclick="nav('evaluaciones')">🧪 Evaluaciones</button>
+      </div>
+    </div>
+  </div>
+  <div style="background:#fff;border-radius:13px;padding:18px;box-shadow:0 2px 8px rgba(10,42,94,.06);margin-bottom:16px">
+    <h4 style="font-size:14px;font-weight:800;color:var(--az);margin-bottom:13px">📊 Progreso por Unidad</h4>
+    <div class="progi"><div class="progh"><span>4° — U1: Apps y Videojuegos</span><span style="color:var(--azc)">57%</span></div><div class="progw"><div class="progf" style="width:57%"></div></div></div>
+    <div class="progi"><div class="progh"><span>4° — U2: Habilidades previas</span><span>0%</span></div><div class="progw"><div class="progf" style="width:0%"></div></div></div>
+    <div class="progi"><div class="progh"><span>5° — U1: Ensamblaje</span><span style="color:var(--mo)">28%</span></div><div class="progw"><div class="progf p" style="width:28%"></div></div></div>
+    <div class="progi" style="margin-bottom:0"><div class="progh"><span>5° — U2: BIOS y Mantenimiento</span><span>0%</span></div><div class="progw"><div class="progf p" style="width:0%"></div></div></div>
+  </div>
+  <h4 style="font-size:14px;font-weight:800;color:var(--az);margin-bottom:11px">🎓 Calificaciones</h4>
+  <table class="calt">
+    <thead><tr><th>Grado</th><th>Unidad</th><th>Práctica</th><th>Quiz/Eval</th><th>Proyecto</th><th>Promedio</th></tr></thead>
+    <tbody>
+      <tr><td>4°</td><td>Unidad 1</td><td><span class="nota a">16</span></td><td><span class="nota a">15</span></td><td><span class="nota a">17</span></td><td><span class="nota a">16</span></td></tr>
+      <tr><td>4°</td><td>Unidad 2</td><td><span class="nota c">—</span></td><td><span class="nota c">—</span></td><td><span class="nota c">—</span></td><td><span class="nota c">—</span></td></tr>
+      <tr><td>5°</td><td>Unidad 1</td><td><span class="nota b">14</span></td><td><span class="nota b">—</span></td><td><span class="nota b">—</span></td><td><span class="nota b">14</span></td></tr>
+      <tr><td>5°</td><td>Unidad 2</td><td><span class="nota c">—</span></td><td><span class="nota c">—</span></td><td><span class="nota c">—</span></td><td><span class="nota c">—</span></td></tr>
+    </tbody>
+  </table>
+</main>
+</div>
+
+<!-- =================== MODALES =================== -->
+<!-- Sesiones 4° -->
+<div class="mo" id="mSes4"><div class="md"><div class="mh"><h3 id="mS4T">Sesiones</h3><button class="mc" onclick="cM('mSes4')">✕</button></div><div class="mb" id="mS4B"></div><div class="mf"><button class="btn btn-out" onclick="cM('mSes4')">Cerrar</button><button class="btn btn-az" onclick="nav('evidencias');cM('mSes4')">📤 Subir Evidencia</button></div></div></div>
+<!-- Sesiones 5° -->
+<div class="mo" id="mSes5"><div class="md"><div class="mh mp"><h3 id="mS5T">Sesiones</h3><button class="mc" onclick="cM('mSes5')">✕</button></div><div class="mb" id="mS5B"></div><div class="mf"><button class="btn btn-out" onclick="cM('mSes5')">Cerrar</button><button class="btn btn-mo" onclick="nav('evidencias');cM('mSes5')">📤 Subir Evidencia</button></div></div></div>
+<!-- Eval Quiz -->
+<div class="mo" id="mEval"><div class="md"><div class="mh" id="mEH"><h3 id="mET">Quiz</h3><button class="mc" onclick="cM('mEval')">✕</button></div><div class="mb" id="mEB"></div><div class="mf"><button class="btn btn-out" onclick="cM('mEval')">Cerrar</button><button class="btn btn-az" id="bEv" onclick="subEval()">✅ Enviar</button></div></div></div>
+<!-- Mensaje -->
+<div class="mo" id="modalMsg"><div class="md"><div class="mh"><h3>✉️ Mensaje al Prof. Manolo Ortiz</h3><button class="mc" onclick="cM('modalMsg')">✕</button></div>
+<div class="mb">
+  <div class="fg" style="margin-bottom:10px"><label>Nombre completo</label><input type="text" id="m-nom" placeholder="Tu nombre"></div>
+  <div class="fg" style="margin-bottom:10px"><label>Grado</label><select id="m-gr"><option value="">— Seleccionar —</option><option>4° Sec A</option><option>4° Sec B</option><option>5° Sec A</option><option>5° Sec B</option></select></div>
+  <div class="fg" style="margin-bottom:10px"><label>Asunto</label><input type="text" id="m-as" placeholder="Ej: Consulta sobre práctica #3"></div>
+  <div class="fg"><label>Mensaje</label><textarea id="m-bo" style="min-height:85px" placeholder="Escribe tu mensaje…"></textarea></div>
+</div>
+<div class="mf"><button class="btn btn-out" onclick="cM('modalMsg')">Cancelar</button><button class="btn btn-az" onclick="envMsg()">📨 Enviar</button></div></div></div>
+<!-- Perfil -->
+<div class="mo" id="modalPer"><div class="md"><div class="mh"><h3>✏️ Editar Perfil</h3><button class="mc" onclick="cM('modalPer')">✕</button></div>
+<div class="mb">
+  <div class="form-grid">
+    <div class="fg"><label>Nombre completo</label><input type="text" id="ep-n" placeholder="Tu nombre"></div>
+    <div class="fg"><label>Grado y Sección</label><select id="ep-g"><option value="">— Seleccionar —</option><option>4° Secundaria — A</option><option>4° Secundaria — B</option><option>5° Secundaria — A</option><option>5° Secundaria — B</option></select></div>
+    <div class="fg"><label>Correo</label><input type="email" id="ep-e" placeholder="correo@ejemplo.com"></div>
+    <div class="fg"><label>WhatsApp</label><input type="tel" id="ep-t" placeholder="+51 999 000 000"></div>
+  </div>
+</div>
+<div class="mf"><button class="btn btn-out" onclick="cM('modalPer')">Cancelar</button><button class="btn btn-az" onclick="savePer()">💾 Guardar</button></div></div></div>
+
+<div class="toast" id="toast">Mensaje</div>
+
+<footer>
+  <strong>I.E. N° 0302 "Amadeo Zumaeta Valles"</strong> · Shanao, San Martín, Perú · Fundada 1994<br>
+  4° Grado: Desarrollo de Apps Móviles y Videojuegos &nbsp;|&nbsp; 5° Grado: Ensamblaje, Redes y Seguridad Informática<br>
+  Docente: <strong>Prof. Manolo Ortiz Delgado</strong> · Educación para el Trabajo · Año Lectivo 2026
+</footer>
+
+<script>
+// ============ GRADO ============
+let grado=4;
+function setGrado(g){
+  grado=g;
+  document.getElementById('btn4').classList.toggle('active',g===4);
+  document.getElementById('btn5').classList.toggle('active',g===5);
+  updHero();updSecs();
+}
+function updHero(){
+  if(grado===4){
+    document.getElementById('hero-t').textContent='Desarrollo de Apps Móviles y Videojuegos';
+    document.getElementById('hero-d').textContent='72 horas pedagógicas · Diseña, programa, prueba y presenta tu propia app o videojuego. 9 semanas × 8 horas.';
+    document.getElementById('hero-sub').innerHTML='<span style="background:rgba(240,180,41,.25);border:1px solid rgba(240,180,41,.5);color:#fde68a;padding:3px 11px;border-radius:16px;font-size:11px;font-weight:700">📱 4° Grado A</span><span style="background:rgba(240,180,41,.25);border:1px solid rgba(240,180,41,.5);color:#fde68a;padding:3px 11px;border-radius:16px;font-size:11px;font-weight:700">📱 4° Grado B</span>';
+  } else {
+    document.getElementById('hero-t').textContent='Ensamblaje, Reparación y Seguridad Informática';
+    document.getElementById('hero-d').textContent='PC de escritorio, Tablet, Laptop · Redes cableadas e inalámbricas · Seguridad informática · Certificación técnica.';
+    document.getElementById('hero-sub').innerHTML='<span style="background:rgba(124,58,237,.3);border:1px solid rgba(124,58,237,.5);color:#e9d5ff;padding:3px 11px;border-radius:16px;font-size:11px;font-weight:700">🖥️ 5° Grado A</span><span style="background:rgba(124,58,237,.3);border:1px solid rgba(124,58,237,.5);color:#e9d5ff;padding:3px 11px;border-radius:16px;font-size:11px;font-weight:700">🖥️ 5° Grado B</span>';
+  }
+}
+function updSecs(){
+  ['sec4u','sec4e'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display=grado===4?'block':'none';});
+  ['sec5u','sec5e'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display=grado===5?'block':'none';});
+}
+
+// ============ NAV ============
+const NM={'inicio':0,'docente':1,'unidades':2,'evaluaciones':3,'evidencias':4,'foro':5,'cronograma':6,'videos':7,'meet':8,'perfil':9};
+function nav(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-tab')[NM[id]].classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='cronograma') rCron();
+  if(id==='foro') rForo();
+  if(id==='unidades'||id==='evaluaciones') updSecs();
+}
+
+// ============ TOAST ============
+let tt;
+function showToast(msg,t='success'){
+  const el=document.getElementById('toast');
+  el.className='toast '+t;el.textContent=msg;el.classList.add('show');
+  clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),3500);
+}
+
+// ============ MODAL ============
+function aM(id){document.getElementById(id).classList.add('open');}
+function cM(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.mo').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
+
+// ============ DRIVE ============
+function openDrive(){window.open('https://drive.google.com/drive/folders/1IK8voU6O-eIhUTHyUqahWtn3IqB0Gcsm','_blank');showToast('📂 Abriendo carpeta Drive…','info');}
+
+// ============ DOCENTE UPLOAD ============
+let dFiles=[];
+document.getElementById('fDoc').addEventListener('change',e=>{dFiles=[...dFiles,...Array.from(e.target.files)];rDocFiles();e.target.value='';});
+const dDZ=document.getElementById('dropDoc');
+dDZ.addEventListener('dragover',e=>{e.preventDefault();dDZ.classList.add('dg');});
+dDZ.addEventListener('dragleave',()=>dDZ.classList.remove('dg'));
+dDZ.addEventListener('drop',e=>{e.preventDefault();dDZ.classList.remove('dg');dFiles=[...dFiles,...Array.from(e.dataTransfer.files)];rDocFiles();});
+function getIco(n){const e=n.split('.').pop().toLowerCase();const m={pdf:'📄',doc:'📝',docx:'📝',ppt:'📊',pptx:'📊',xls:'📊',xlsx:'📊',mp4:'🎥',jpg:'🖼️',jpeg:'🖼️',png:'🖼️',zip:'📦'};return m[e]||'📎';}
+function rDocFiles(){
+  document.getElementById('fpDoc').innerHTML=dFiles.map((f,i)=>`<div class="fc"><span>${getIco(f.name)}</span><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;font-size:11px;flex:1">${f.name}</span><span class="fr2" onclick="rmDoc(${i})">✕</span></div>`).join('');
+  document.getElementById('docForm').style.display=dFiles.length?'block':'none';
+}
+function rmDoc(i){dFiles.splice(i,1);rDocFiles();}
+function canDoc(){dFiles=[];['d-gr','d-un','d-ti','d-lk','d-tt','d-ds'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});rDocFiles();}
+function pubMat(){
+  const tt=document.getElementById('d-tt').value.trim();
+  const gr=document.getElementById('d-gr').value;
+  const un=document.getElementById('d-un').value;
+  const ti=document.getElementById('d-ti').value;
+  if(!tt||!gr||!un||!ti){showToast('⚠️ Completa todos los campos','warn');return;}
+  if(!dFiles.length&&!document.getElementById('d-lk').value.trim()){showToast('⚠️ Sube un archivo o agrega enlace','warn');return;}
+  const now=new Date();
+  const fd=`${now.getDate()} ${['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'][now.getMonth()]} ${now.getFullYear()}`;
+  const ico=ti.includes('Video')?'🎥':ti.includes('PDF')?'📄':ti.includes('Plantilla')?'💼':ti.includes('Eval')?'🧪':ti.includes('Enlace')?'🔗':'📦';
+  const it=document.createElement('div');
+  it.className='mi';
+  it.innerHTML=`<span class="mi-ico">${ico}</span><div class="mi-info"><h5>${tt}</h5><p>${gr} · ${un} · ${ti} · ${fd}</p></div><div class="mi-acts"><button class="bdl" onclick="openDrive()">⬇️ Descargar</button><button class="bdel" onclick="delMat(this)">🗑️</button></div>`;
+  document.getElementById('matItems').insertBefore(it,document.getElementById('matItems').firstChild);
+  const b=document.getElementById('bdoc');b.textContent=parseInt(b.textContent)+1;
+  canDoc();showToast('🚀 Material publicado para los estudiantes','purple');
+}
+function delMat(btn){if(confirm('¿Eliminar este material?')){btn.closest('.mi').remove();showToast('🗑️ Material eliminado','warn');}}
+
+// ============ SESIONES ============
+const SD4={
+  1:[{n:1,t:'Arquitectura de la información y Wireframes',d:'Diseño de esquemas visuales y flujos de interacción',s:'ok'},
+     {n:2,t:'Análisis de requerimientos',d:'Definición de acciones principales y funciones del sistema',s:'ok'},
+     {n:3,t:'Diseño de Interfaz (UI) y Usabilidad (UX)',d:'Entornos digitales accesibles, funcionales y atractivos',s:'ok'},
+     {n:4,t:'Lógica de programación y desarrollo',d:'Funciones básicas e interactividad en plataformas de desarrollo',s:'ok'},
+     {n:5,t:'Integración multimedia y pruebas (Testing)',d:'Recursos audiovisuales y corrección de errores (Debugging)',s:'pend'},
+     {n:6,t:'Validación del prototipo (Testeo con usuarios)',d:'Evaluación real, retroalimentación y mejoras',s:'pend'},
+     {n:7,t:'Comunicación del producto (Pitch final)',d:'Presentación final, exposición de valor y reflexión colaborativa',s:'pend'}],
+  2:[{n:1,t:'Identificación de problemas en el entorno',d:'Observar el contexto y detectar necesidades tecnológicas',s:'pend'},
+     {n:2,t:'Lógica secuencial y resolución de problemas',d:'Secuencias y algoritmos básicos (prerrequisito de programación)',s:'pend'},
+     {n:3,t:'Nociones de diseño y estética visual',d:'Organizar información gráficamente para el usuario',s:'pend'},
+     {n:4,t:'Organización y trabajo colaborativo',d:'Roles, equipo y gestión de recursos hacia una meta',s:'pend'},
+     {n:5,t:'Conciencia de impacto sociotecnológico',d:'Influencia de proyectos en la comunidad y el ambiente',s:'pend'}]
+};
+const SD5={
+  1:[{n:1,t:'Evaluación inicial — Semana 1',d:'Diagnóstico de saberes previos sobre hardware',s:'ok'},
+     {n:2,t:'Evaluación diagnóstica — Semana 2',d:'Reconocer elementos internos y periféricos',s:'ok'},
+     {n:3,t:'Ensamblaje de dispositivos informáticos',d:'Integración de componentes con orden y normas técnicas',s:'pend'},
+     {n:4,t:'Comprobación y configuración BIOS/UEFI',d:'Pruebas de diagnóstico y ajustes de arranque',s:'pend'},
+     {n:5,t:'Instalación de SO y controladores',d:'Formateo, despliegue y optimización del equipo',s:'pend'},
+     {n:6,t:'Análisis de fallas y mantenimiento',d:'Preventivo y correctivo con registro técnico',s:'pend'},
+     {n:7,t:'Redes, seguridad informática y IA',d:'Conectividad, configuración, protección de datos y contenidos con IA',s:'pend'}],
+  2:[{n:1,t:'Configuración de BIOS/UEFI',d:'Parámetros de arranque y optimización desde la placa base',s:'pend'},
+     {n:2,t:'Instalación de Sistemas Operativos',d:'Formateo, despliegue de software base y controladores',s:'pend'},
+     {n:3,t:'Software de Diagnóstico Técnico',d:'Utilitarios para detección de fallas en hardware/software',s:'pend'},
+     {n:4,t:'Troubleshooting: Análisis y resolución de fallas',d:'Interpretación de códigos de error y síntomas',s:'pend'},
+     {n:5,t:'Sustitución de Componentes I',d:'Reemplazo seguro de fuentes de poder y RAM',s:'pend'},
+     {n:6,t:'Sustitución de Componentes II',d:'Cambio de almacenamiento SSD/HDD, pantallas y periféricos',s:'pend'},
+     {n:7,t:'Mantenimiento Preventivo (Hardware)',d:'Limpieza física interna y prevención de sobrecalentamiento',s:'pend'},
+     {n:8,t:'Mantenimiento Correctivo (Software)',d:'Optimización lógica y corrección de errores del SO',s:'pend'},
+     {n:9,t:'Documentación de Soporte Técnico',d:'Fichas técnicas, registro de procedimientos y recomendaciones',s:'pend'}]
+};
+function buildSes(data,isPur){
+  return data.map(s=>{
+    const ok=s.s==='ok';
+    const sc=ok?(isPur?'co-ok':'co-ok'):(isPur?'co-m':'co-p');
+    const sl=ok?'✅ Completado':'⏳ Pendiente';
+    const btn=ok?`<button class="btn btn-az btn-sm" onclick="openDrive()">📥 Material</button>`:'';
+    return `<div class="si"><div class="sn${isPur?' p':''}">${s.n}</div><div style="flex:1"><div style="font-size:12px;font-weight:700">${s.t}</div><div style="font-size:10px;color:var(--gr)">${s.d}</div></div><span class="co ${sc}" style="margin:0 6px">${sl}</span>${btn}</div>`;
+  }).join('');
+}
+function ses4(u){
+  const t={1:'📱 Unidad 1 — Apps y Videojuegos',2:'💡 Unidad 2 — Habilidades Previas'};
+  document.getElementById('mS4T').textContent=t[u];
+  document.getElementById('mS4B').innerHTML=buildSes(SD4[u],false);
+  aM('mSes4');
+}
+function ses5(u){
+  const t={1:'🖥️ Unidad 1 — Ensamblaje',2:'⚙️ Unidad 2 — BIOS y Mantenimiento'};
+  document.getElementById('mS5T').textContent=t[u];
+  document.getElementById('mS5B').innerHTML=buildSes(SD5[u],true);
+  aM('mSes5');
+}
+
+// ============ EVALUACIONES / QUIZZES ============
+const QZ={
+  q4u1:{title:'🧪 Quiz 1 — Wireframes y Arquitectura (4°)',pur:false,qs:[
+    {q:'¿Qué es un wireframe?',ops:['Un código de programación','Un esquema visual de la interfaz','Un tipo de videojuego','Una base de datos'],r:1},
+    {q:'¿Qué significa "flujo de usuario" en diseño?',ops:['La velocidad de internet','El camino del usuario dentro de la app','Una función matemática','El diseño de colores'],r:1},
+    {q:'¿En qué herramienta se suelen crear wireframes?',ops:['Minecraft','Excel','Figma','Photoshop'],r:2},
+    {q:'¿Qué define la "Arquitectura de Información"?',ops:['La forma en que se almacenan los datos','La organización del contenido y navegación de la app','El código fuente del proyecto','El color de la interfaz'],r:1},
+    {q:'¿Qué representa un prototipo de baja fidelidad?',ops:['Una app terminada','Un boceto simple sin colores ni detalles','Un diseño final con animaciones','El código de programación'],r:1},
+  ]},
+  q4u1b:{title:'🧪 Quiz 2 — UI/UX y Diseño de Interfaz (4°)',pur:false,qs:[
+    {q:'¿Qué significa UX?',ops:['Ultra eXtension','User Experience','Universal XML','User eXit'],r:1},
+    {q:'¿Qué significa UI?',ops:['User Interface','Ultra Input','Universal Integration','Unique Index'],r:0},
+    {q:'¿Cuál es el objetivo principal del diseño UX?',ops:['Hacer bonita la app','Que el usuario tenga una experiencia fácil y satisfactoria','Programar más rápido','Reducir el tamaño del código'],r:1},
+    {q:'¿Qué elemento hace más "accesible" una interfaz?',ops:['Muchos colores brillantes','Tipografía muy pequeña','Botones grandes y texto legible','Imágenes sin descripciones'],r:2},
+    {q:'¿Qué es el "testing con usuarios"?',ops:['Programar sin errores','Probar la app con personas reales para detectar problemas','Diseñar el logo','Escribir el manual'],r:1},
+  ]},
+  q4u1c:{title:'🧪 Quiz 3 — Lógica de Programación (4°)',pur:false,qs:[
+    {q:'¿Qué es un algoritmo?',ops:['Un tipo de virus','Una secuencia ordenada de pasos para resolver un problema','Un lenguaje de programación','Un componente de hardware'],r:1},
+    {q:'¿Qué estructura de control permite repetir acciones?',ops:['Condicional (if)','Secuencia','Bucle (for/while)','Variable'],r:2},
+    {q:'En MIT App Inventor, ¿cómo se programan las acciones?',ops:['Escribiendo código Python','Con bloques visuales arrastrables','En lenguaje C++','Con comandos de terminal'],r:1},
+    {q:'¿Qué es una variable en programación?',ops:['Un error del sistema','Un espacio en memoria para guardar datos','Un tipo de bucle','Una función matemática'],r:1},
+    {q:'¿Qué hace un evento "OnClick" en una app?',ops:['Cierra la app','Ejecuta una acción cuando el usuario toca un elemento','Abre el navegador','Guarda un archivo'],r:1},
+  ]},
+  diag5:{title:'📋 Diagnóstico — Hardware (5°)',pur:true,qs:[
+    {q:'¿Cuál es el "cerebro" del computador?',ops:['La RAM','El disco duro','El procesador (CPU)','La tarjeta gráfica'],r:2},
+    {q:'¿Qué significa RAM?',ops:['Random Access Memory','Read And Modify','Remote Audio Module','Real Application Manager'],r:0},
+    {q:'¿Cuál es la función de la fuente de poder?',ops:['Almacenar datos','Suministrar electricidad al sistema','Procesar información','Conectar a internet'],r:1},
+    {q:'¿Qué tipo de puerto se usa hoy para periféricos?',ops:['VGA','USB','PS/2','Serial RS-232'],r:1},
+    {q:'¿Qué es el BIOS?',ops:['Un tipo de virus','Software básico de arranque del sistema','Un modelo de CPU','Un sistema operativo'],r:1},
+  ]},
+  q5u1:{title:'🧪 Quiz 1 — Componentes de PC (5°)',pur:true,qs:[
+    {q:'¿Cuántos núcleos tiene un procesador "quad-core"?',ops:['2','4','6','8'],r:1},
+    {q:'¿Dónde se almacenan los datos de forma permanente?',ops:['RAM','CPU','Disco duro/SSD','Caché'],r:2},
+    {q:'¿Qué es la placa madre?',ops:['Una tarjeta de video','El componente donde se conectan todos los demás','La fuente de poder','Un tipo de RAM'],r:1},
+    {q:'¿Qué es un periférico de entrada?',ops:['Monitor','Impresora','Teclado','Parlante'],r:2},
+    {q:'¿Cuál es la velocidad típica de un puerto USB 3.0?',ops:['12 Mbps','480 Mbps','5 Gbps','10 Gbps'],r:2},
+  ]},
+  q5u2:{title:'🧪 Quiz 2 — BIOS/UEFI y Sistemas Operativos (5°)',pur:true,qs:[
+    {q:'¿Qué es el UEFI?',ops:['Un tipo de disco duro','Sucesor moderno del BIOS','Un sistema operativo','Un tipo de RAM'],r:1},
+    {q:'¿Qué permite configurar el BIOS/UEFI?',ops:['El diseño del escritorio','El orden de arranque y parámetros del sistema','Las apps instaladas','El brillo del monitor'],r:1},
+    {q:'¿Qué herramienta se usa para crear un USB booteable?',ops:['Excel','Rufus / Windows Media Tool','Figma','Notepad'],r:1},
+    {q:'¿Qué ocurre durante el formateo de un disco?',ops:['Se copian los archivos','Se borra toda la información y se prepara para el SO','Se instalan los drivers','Se configura el BIOS'],r:1},
+    {q:'¿Cuál es la partición del sistema en Windows?',ops:['C:\\','D:\\','E:\\','Z:\\'],r:0},
+  ]},
+  q4u1d:{title:'🧪 Quiz 4 — Testing, Debugging y Validación (4°)',pur:false,qs:[
+    {q:'¿Qué significa "debugging" en programación?',ops:['Diseñar el logo','Detectar y corregir errores en el código','Publicar la app en la tienda','Crear la base de datos'],r:1},
+    {q:'¿Qué es el "testeo con usuarios reales"?',ops:['Probar la app solo con el docente','Evaluar la app con personas del público objetivo para detectar fallas','Revisar el código fuente','Hacer una presentación del proyecto'],r:1},
+    {q:'¿Qué se hace con la retroalimentación del testeo?',ops:['Ignorarla','Aplicar mejoras al prototipo','Borrar la app','Cambiar de proyecto'],r:1},
+    {q:'¿Qué es una "prueba de escritorio"?',ops:['Probar la app en un escritorio físico','Simulación mental o manual del flujo antes de ejecutar el código','Un tipo de hardware','Publicar en Play Store'],r:1},
+    {q:'¿Cuántas veces se puede mejorar un prototipo?',ops:['Solo una vez','Ninguna','Las veces necesarias según el feedback recibido','Máximo dos veces'],r:2},
+    {q:'¿Qué herramienta ayuda a detectar errores en MIT App Inventor?',ops:['El panel "Blocks" y el emulador de prueba','Excel','Google Docs','Canva'],r:0},
+  ]},
+  q4u1e:{title:'🧪 Quiz 5 — Pitch y Comunicación del Producto (4°)',pur:false,qs:[
+    {q:'¿Qué es un "pitch" en el contexto de proyectos tecnológicos?',ops:['Un tipo de código','Una presentación breve que comunica el valor del proyecto','Un error del sistema','Un tipo de wireframe'],r:1},
+    {q:'¿Cuánto tiempo suele durar un pitch de producto?',ops:['2 horas','5 a 10 minutos aproximadamente','30 minutos','1 hora mínimo'],r:1},
+    {q:'¿Cuál es el elemento más importante de un buen pitch?',ops:['Muchas diapositivas','Comunicar claramente el problema que resuelve y su valor','Usar animaciones complejas','Leer todo del papel'],r:1},
+    {q:'¿Qué se reflexiona al final de un proyecto colaborativo?',ops:['Qué ganaron económicamente','Las dificultades, aprendizajes y aportes de cada integrante','Solo los errores cometidos','Nada, solo se entrega'],r:1},
+    {q:'¿Qué es el "valor diferencial" de una app?',ops:['Su precio en la tienda','Lo que la hace única y útil frente a otras soluciones','La cantidad de colores que usa','El peso del archivo'],r:1},
+    {q:'¿Qué incluye una buena presentación final de producto digital?',ops:['Solo el código','Problema, solución, demo del prototipo y conclusiones','El manual técnico completo','Sólo el diseño visual'],r:1},
+  ]},
+  q5u2b:{title:'🧪 Quiz 3 — Troubleshooting y Mantenimiento (5°)',pur:true,qs:[
+    {q:'¿Qué significa "Troubleshooting"?',ops:['Formatear el disco','Diagnóstico y resolución de fallas técnicas','Instalar un SO nuevo','Limpiar el teclado'],r:1},
+    {q:'¿Qué herramienta física se usa para limpiar el interior de un PC?',ops:['Trapo mojado','Aire comprimido','Aspiradora potente','Agua caliente'],r:1},
+    {q:'¿Qué indica la pantalla azul (BSOD) en Windows?',ops:['Falta de disco duro','Error crítico del sistema que requiere reinicio','Virus en el sistema','Falta de energía'],r:1},
+    {q:'¿Cuándo se recomienda el mantenimiento preventivo de hardware?',ops:['Solo cuando falla','Cada 6 meses aproximadamente','Una vez al año como mínimo','Nunca es necesario'],r:1},
+    {q:'¿Qué programa ayuda a detectar errores en el disco duro?',ops:['Microsoft Word','CrystalDiskInfo / chkdsk','Figma','Minecraft'],r:1},
+  ]}
+};
+
+let evalR={};let evalK='';
+function abrirEval(k){
+  evalR={};evalK=k;
+  const q=QZ[k];
+  document.getElementById('mET').textContent=q.title;
+  document.getElementById('mEH').className='mh'+(q.pur?' mp':'');
+  document.getElementById('bEv').className='btn '+(q.pur?'btn-mo':'btn-az');
+  document.getElementById('bEv').disabled=false;
+  document.getElementById('bEv').textContent='✅ Enviar Respuestas';
+  document.getElementById('mEB').innerHTML=q.qs.map((p,i)=>`
+    <div style="background:var(--azi);border-radius:10px;padding:12px;margin-bottom:10px">
+      <p style="font-weight:700;font-size:12px;margin-bottom:9px">${i+1}. ${p.q}</p>
+      ${p.ops.map((o,j)=>`<label class="qopt" id="op-${i}-${j}" style="cursor:pointer" onclick="pickOp(${i},${j},${q.qs.length})">
+        <input type="radio" name="q${i}" value="${j}" style="accent-color:${q.pur?'var(--mo)':'var(--azc)'}"> ${o}
+      </label>`).join('')}
+    </div>`).join('');
+  aM('mEval');
+}
+function pickOp(q,o){evalR[q]=o;}
+function subEval(){
+  const qz=QZ[evalK];
+  if(Object.keys(evalR).length<qz.qs.length){showToast('⚠️ Responde todas las preguntas','warn');return;}
+  let ok=0;qz.qs.forEach((p,i)=>{if(evalR[i]===p.r)ok++;});
+  const pct=Math.round((ok/qz.qs.length)*100);
+  const nota=Math.round((ok/qz.qs.length)*20);
+  document.getElementById('mEB').innerHTML=`
+    <div style="text-align:center;padding:26px">
+      <div style="font-size:54px;margin-bottom:12px">${pct>=60?'🎉':'📚'}</div>
+      <h3 style="font-size:21px;font-weight:900;color:var(--az)">${ok}/${qz.qs.length} correctas</h3>
+      <div style="font-size:34px;font-weight:900;color:${pct>=60?'#166534':'var(--ro)'};margin:8px 0">${pct}%</div>
+      <div style="font-size:16px;font-weight:800;color:${pct>=60?'#166534':'var(--ro)'}">Nota: ${nota}/20</div>
+      <p style="font-size:13px;color:var(--gr);margin-top:8px">${pct>=60?'¡Felicidades! Superaste el quiz.':'Sigue repasando el material. ¡Inténtalo de nuevo!'}</p>
+      ${pct<100?`<button class="btn btn-az" style="margin-top:14px" onclick="abrirEval('${evalK}');showToast('🔄 Quiz reiniciado','info')">🔄 Reintentar</button>`:''}
+    </div>`;
+  document.getElementById('bEv').disabled=true;
+  showToast(`🧪 ${ok}/${qz.qs.length} — ${pct}% — Nota: ${nota}/20`,pct>=60?'success':'warn');
+}
+
+// ============ FORO ============
+const FD=[
+  {id:1,a:'Carlos Fernández',g:'4° Sec A',t:'4° — U1: Apps y Videojuegos',tx:'Profe, ¿en qué plataforma creamos nuestra app? ¿MIT App Inventor o Thunkable?',tm:'hace 3h',lk:5,rs:[{a:'Prof. Manolo Ortiz',tx:'¡Hola Carlos! Usaremos MIT App Inventor para apps móviles y GDevelop para videojuegos. Ambos gratuitos. ¡Éxito!',tm:'hace 2h',pf:true}]},
+  {id:2,a:'Lucía Vásquez',g:'5° Sec B',t:'5° — U1: Ensamblaje',tx:'¿Cuántos pines tiene el socket LGA 1700 y para qué procesadores sirve?',tm:'hace 5h',lk:2,rs:[]},
+  {id:3,a:'Pedro Quispe',g:'4° Sec A',t:'General / Evaluaciones',tx:'¿El Quiz 1 tiene nota o es solo práctica?',tm:'hace 1 día',lk:3,rs:[{a:'Prof. Manolo Ortiz',tx:'Sí tiene nota Pedro: vale 20 puntos y forma parte del promedio del bimestre. ¡Prepárate bien!',tm:'hace 20h',pf:true}]},
+  {id:4,a:'Ana Soto',g:'5° Sec A',t:'5° — U2: BIOS y Mantenimiento',tx:'Profe, al instalar Windows el BIOS no detecta el USB booteable. ¿Qué hago?',tm:'hace 2 días',lk:4,rs:[{a:'Prof. Manolo Ortiz',tx:'Verifica en BIOS que el Boot Order tenga el USB primero. Asegúrate de que el USB fue creado con Rufus en el modo correcto (Legacy o UEFI según tu equipo).',tm:'hace 1 día',pf:true}]},
+];
+let foN=5;
+function rForo(){
+  const c=document.getElementById('foroList');
+  if(!FD.length){c.innerHTML=`<div class="emp"><div class="ei2">💬</div><h4>Sin publicaciones</h4><p>¡Sé el primero en preguntar!</p></div>`;return;}
+  c.innerHTML=FD.slice().reverse().map(f=>`
+    <div class="fp">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px">
+        <div class="fav">${f.a.charAt(0)}</div>
+        <div><div style="font-size:12px;font-weight:700">${f.a} <span style="font-weight:400;color:var(--gr)">· ${f.g}</span></div>
+        <div style="font-size:10px;color:#999">🏷️ ${f.t} · ⏱️ ${f.tm}</div></div>
+      </div>
+      <p style="font-size:12px;color:var(--tx);line-height:1.6;margin-bottom:9px">${f.tx}</p>
+      <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px">
+        <button class="bf" onclick="likeF(${f.id})">👍 ${f.lk}</button>
+        <button class="bf" onclick="togR(${f.id})">💬 Respuestas (${f.rs.length})</button>
+        <button class="bf" onclick="togRF(${f.id})">↩️ Responder</button>
+      </div>
+      <div id="rd-${f.id}" style="display:none">
+        ${f.rs.map(r=>`<div class="fr" style="${r.pf?'border-left:3px solid var(--do)':''}">
+          <strong style="font-size:11px">${r.pf?'👨‍🏫 ':''} ${r.a}</strong>
+          <span style="font-size:9px;color:#999;margin-left:7px">${r.tm}</span>
+          <p style="font-size:11px;margin-top:5px">${r.tx}</p>
+        </div>`).join('')}
+        <div id="rf-${f.id}" style="display:none;margin-top:8px">
+          <div style="display:flex;gap:7px">
+            <input type="text" id="ri-${f.id}" placeholder="Escribe tu respuesta…" style="flex:1;padding:7px 10px;border:1.5px solid #c3d8f5;border-radius:9px;font-family:'Nunito',sans-serif;font-size:11px;">
+            <button class="btn btn-az btn-sm" onclick="sendR(${f.id})">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+  document.getElementById('bforo').textContent=FD.length;
+}
+function pubForo(){
+  const a=document.getElementById('for-a').value.trim();
+  const tx=document.getElementById('for-tx').value.trim();
+  const t=document.getElementById('for-t').value;
+  if(!a||!tx){showToast('⚠️ Escribe tu nombre y mensaje','warn');return;}
+  FD.push({id:foN++,a,g:'',t,tx,tm:'ahora mismo',lk:0,rs:[]});
+  document.getElementById('for-tx').value='';document.getElementById('for-a').value='';
+  rForo();showToast('📢 Publicado en el foro','success');
+}
+function likeF(id){const f=FD.find(x=>x.id===id);if(f){f.lk++;rForo();showToast('👍 Marcado como útil','info');}}
+function togR(id){const e=document.getElementById('rd-'+id);e.style.display=e.style.display==='block'?'none':'block';}
+function togRF(id){togR(id);const rf=document.getElementById('rf-'+id);if(rf)rf.style.display=rf.style.display==='block'?'none':'block';}
+function sendR(id){
+  const inp=document.getElementById('ri-'+id);
+  if(!inp||!inp.value.trim()){showToast('⚠️ Escribe una respuesta','warn');return;}
+  const f=FD.find(x=>x.id===id);
+  if(f)f.rs.push({a:'Yo',tx:inp.value.trim(),tm:'ahora mismo',pf:false});
+  inp.value='';rForo();
+  document.getElementById('rd-'+id).style.display='block';
+  showToast('↩️ Respuesta enviada','success');
+}
+
+// ============ CRONOGRAMA ============
+const CD=[
+  {s:'Sem 1–9 · 16 mar – 15 may',g:'4°',u:'Unidad 1',a:'Wireframes, UI/UX, Programación, Testing y Pitch de app/videojuego',e:'ok'},
+  {s:'Sem 1–9 · 16 mar – 15 may',g:'5°',u:'Unidad 1',a:'Ensamblaje, BIOS, instalación SO, mantenimiento, redes y seguridad',e:'ok'},
+  {s:'Sem 10–18 · 25 may – 24 jul',g:'4°',u:'Unidad 2',a:'Lógica, diseño, trabajo colaborativo e impacto sociotecnológico',e:'hoy'},
+  {s:'Sem 10–18 · 25 may – 24 jul',g:'5°',u:'Unidad 2',a:'BIOS/UEFI, SO, diagnóstico, troubleshooting, componentes y documentación',e:'hoy'},
+  {s:'Sem 19–27 · 10 ago – 9 oct',g:'4°',u:'Unidad 3',a:'Interfaces intuitivas, ejecución de códigos y autenticación de usuario',e:'prox'},
+  {s:'Sem 19–27 · 10 ago – 9 oct',g:'5°',u:'Unidad 3',a:'Diseño e instalación de redes cableadas e inalámbricas',e:'prox'},
+  {s:'Sem 28–36 · 19 oct – 18 dic',g:'4°',u:'Unidad 4',a:'Publicidad con IA, Design Thinking, Lean Canvas y emprendimiento',e:'prox'},
+  {s:'Sem 28–36 · 19 oct – 18 dic',g:'5°',u:'Unidad 4',a:'Seguridad informática, IA, protección de datos y certificación',e:'prox'},
+];
+function rCron(f='',gf=''){
+  const tb=document.getElementById('cronTb');
+  const rows=CD.filter(r=>{
+    const mf=!f||r.a.toLowerCase().includes(f.toLowerCase())||r.u.toLowerCase().includes(f.toLowerCase());
+    const mg=!gf||r.g===gf;
+    return mf&&mg;
+  });
+  const em={ok:['co-ok','✅ Completado'],hoy:['co-h','▶️ En curso'],prox:['co-x','🔒 Próximo']};
+  tb.innerHTML=rows.map((r,i)=>{
+    const[cls,lbl]=em[r.e];
+    return `<tr><td style="font-weight:700">${i+1}</td>
+    <td style="font-size:10px">${r.s}</td>
+    <td><span style="font-weight:700;color:${r.g==='4°'?'var(--azc)':'var(--mo)'}">${r.g} Grado</span></td>
+    <td style="font-weight:700">${r.u}</td>
+    <td style="font-size:11px">${r.a}</td>
+    <td><span class="co ${cls}">${lbl}</span></td></tr>`;
+  }).join('');
+  if(!rows.length)tb.innerHTML=`<tr><td colspan="6" style="text-align:center;color:var(--gr);padding:18px">Sin resultados</td></tr>`;
+}
+function filCron(){rCron(document.getElementById('cronQ').value,document.getElementById('cronG').value);}
+
+// ============ EVIDENCIAS ============
+let selF=[];
+document.getElementById('fInp').addEventListener('change',e=>{selF=[...selF,...Array.from(e.target.files)];rEFiles();e.target.value='';});
+const dZ=document.getElementById('dropZone');
+dZ.addEventListener('dragover',e=>{e.preventDefault();dZ.classList.add('dg');});
+dZ.addEventListener('dragleave',()=>dZ.classList.remove('dg'));
+dZ.addEventListener('drop',e=>{e.preventDefault();dZ.classList.remove('dg');selF=[...selF,...Array.from(e.dataTransfer.files)];rEFiles();});
+function rEFiles(){
+  document.getElementById('fpEv').innerHTML=selF.map((f,i)=>`<div class="fc"><span>${getIco(f.name)}</span><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;font-size:11px;flex:1">${f.name}</span><span class="fr2" onclick="rmEF(${i})">✕</span></div>`).join('');
+  document.getElementById('efForm').style.display=selF.length?'block':'none';
+}
+function rmEF(i){selF.splice(i,1);rEFiles();}
+function canEv(){selF=[];['i-nom','i-gr','i-un','i-ti','i-ds'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});rEFiles();}
+function envEv(){
+  const n=document.getElementById('i-nom').value.trim();
+  const g=document.getElementById('i-gr').value;
+  const u=document.getElementById('i-un').value;
+  const t=document.getElementById('i-ti').value;
+  if(!n||!g||!u||!t||!selF.length){showToast('⚠️ Completa todos los campos y sube un archivo','warn');return;}
+  const now=new Date();
+  const fd=`${now.getDate()} ${['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'][now.getMonth()]}`;
+  const hr=`${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')} ${now.getHours()>=12?'PM':'AM'}`;
+  const it=document.createElement('div');it.className='eit';
+  it.innerHTML=`<div style="font-size:18px">📤</div>
+    <div style="flex:1"><h5 style="font-size:12px;font-weight:700">${t} — ${selF.map(f=>f.name).join(', ')}</h5>
+    <p style="font-size:10px;color:var(--gr)">${u} · ${n} · ${g}</p></div>
+    <span class="sr">🔍 En revisión</span>
+    <div style="font-size:10px;color:#aaa;text-align:right">${fd}<br>${hr}</div>`;
+  document.getElementById('entList').insertBefore(it,document.getElementById('entList').firstChild);
+  const pe=document.getElementById('p-ent');pe.textContent=parseInt(pe.textContent)+1;
+  const he=document.getElementById('hs-ent');he.textContent=parseInt(he.textContent)+1;
+  canEv();showToast('✅ ¡Evidencia enviada exitosamente!','success');
+}
+
+// ============ MSG ============
+function envMsg(){
+  const n=document.getElementById('m-nom').value.trim();
+  const a=document.getElementById('m-as').value.trim();
+  const b=document.getElementById('m-bo').value.trim();
+  if(!n||!a||!b){showToast('⚠️ Completa todos los campos','warn');return;}
+  cM('modalMsg');['m-nom','m-as','m-bo'].forEach(id=>document.getElementById(id).value='');
+  showToast('📨 Mensaje enviado al Prof. Manolo Ortiz','success');
+}
+
+// ============ PERFIL ============
+function savePer(){
+  const n=document.getElementById('ep-n').value.trim();
+  const g=document.getElementById('ep-g').value;
+  if(!n||!g){showToast('⚠️ Ingresa nombre y grado','warn');return;}
+  document.getElementById('pNom').textContent=n;
+  document.getElementById('pGr').textContent=g+' · I.E. N° 0302 Amadeo Zumaeta Valles';
+  document.getElementById('pAv').textContent=n.charAt(0).toUpperCase();
+  cM('modalPer');showToast('💾 Perfil guardado correctamente','success');
+}
+
+// ============ VIDEOS DE YOUTUBE ============
+// Almacén de videos en memoria
+const videosData = [
+  {id:'v1', ytId:'ScMzIvxBSi4', title:'Diseño de Wireframes con Figma — Tutorial Completo', grado:'4° Secundaria', unidad:'Unidad 1', tema:'Wireframes · Tema 1', desc:'Aprende a crear wireframes profesionales desde cero usando Figma. Ideal para el Tema 1 de la Unidad 1.', activo:false},
+  {id:'v2', ytId:'kU57e1FBdEw', title:'MIT App Inventor — Crea tu primera App móvil', grado:'4° Secundaria', unidad:'Unidad 1', tema:'Programación · Tema 4', desc:'Introducción práctica a MIT App Inventor. Construye una app sencilla paso a paso, perfecta para el Tema 4.', activo:false},
+  {id:'v3', ytId:'dSqNn0W8Ky8', title:'Ensamblaje de PC Completo — Paso a Paso', grado:'5° Secundaria', unidad:'Unidad 1', tema:'Ensamblaje · Hardware', desc:'Video detallado de cómo ensamblar una PC de escritorio desde cero, siguiendo las normas técnicas del fabricante.', activo:false},
+];
+
+// Extrae el ID de YouTube desde un URL o un ID directo
+function extraerYouTubeId(input) {
+  input = input.trim();
+  // Si ya es un ID limpio (11 caracteres alfanuméricos)
+  if (/^[a-zA-Z0-9_-]{11}$/.test(input)) return input;
+  // Formatos: youtube.com/watch?v=ID  |  youtu.be/ID  |  youtube.com/embed/ID
+  const regexes = [
+    /[?&]v=([a-zA-Z0-9_-]{11})/,
+    /youtu\.be\/([a-zA-Z0-9_-]{11})/,
+    /embed\/([a-zA-Z0-9_-]{11})/,
+    /shorts\/([a-zA-Z0-9_-]{11})/
+  ];
+  for (const rx of regexes) {
+    const m = input.match(rx);
+    if (m) return m[1];
+  }
+  return null;
+}
+
+function agregarVideo() {
+  const urlInput = document.getElementById('yt-url').value.trim();
+  const title    = document.getElementById('yt-title').value.trim();
+  const grado    = document.getElementById('yt-grado').value;
+  const unidad   = document.getElementById('yt-unidad').value;
+  const tema     = document.getElementById('yt-tema').value.trim();
+  const desc     = document.getElementById('yt-desc').value.trim();
+
+  if (!urlInput || !title || !grado || !unidad) {
+    showToast('⚠️ Completa el enlace, título, grado y unidad', 'warn'); return;
+  }
+  const ytId = extraerYouTubeId(urlInput);
+  if (!ytId) {
+    showToast('⚠️ Enlace de YouTube no válido. Verifica el URL.', 'error'); return;
+  }
+  const newVid = {
+    id: 'v' + Date.now(), ytId, title, grado, unidad,
+    tema: tema || 'General', desc: desc || '', activo: false
+  };
+  videosData.unshift(newVid); // agregar al inicio
+  limpiarVideoForm();
+  renderVideos();
+  document.getElementById('bvid').textContent = videosData.length;
+  showToast('🎬 Video agregado correctamente', 'success');
+}
+
+function limpiarVideoForm() {
+  ['yt-url','yt-title','yt-grado','yt-unidad','yt-tema','yt-desc']
+    .forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+}
+
+// Reproducir el video: reemplaza el overlay con el iframe real
+function reproducirVideo(vidId) {
+  const v = videosData.find(x => x.id === vidId);
+  if (!v) return;
+  v.activo = true;
+  renderVideos(); // re-renderiza; el iframe se carga al estar activo
+}
+
+function eliminarVideo(vidId) {
+  const idx = videosData.findIndex(x => x.id === vidId);
+  if (idx !== -1) videosData.splice(idx, 1);
+  renderVideos();
+  document.getElementById('bvid').textContent = videosData.length;
+  showToast('🗑️ Video eliminado', 'warn');
+}
+
+function filtrarVideos() {
+  const q  = document.getElementById('vidQ').value.toLowerCase();
+  const gf = document.getElementById('vidG').value;
+  const uf = document.getElementById('vidU').value;
+  renderVideos(q, gf, uf);
+}
+
+function renderVideos(q='', gf='', uf='') {
+  const grid = document.getElementById('videoGrid');
+  const filtrados = videosData.filter(v => {
+    const mq = !q || v.title.toLowerCase().includes(q) || v.tema.toLowerCase().includes(q);
+    const mg = !gf || v.grado.includes(gf);
+    const mu = !uf || v.unidad === uf;
+    return mq && mg && mu;
+  });
+  if (!filtrados.length) {
+    grid.innerHTML = `<div class="emp" style="grid-column:1/-1"><div class="ei2">🎬</div><h4>Sin videos</h4><p>Agrega el primer video usando el formulario de arriba.</p></div>`;
+    return;
+  }
+  grid.innerHTML = filtrados.map(v => `
+    <div class="vid-card" id="card-${v.id}">
+      <div class="vid-thumb">
+        ${v.activo
+          ? `<iframe src="https://www.youtube.com/embed/${v.ytId}?autoplay=1&rel=0" allow="autoplay;encrypted-media" allowfullscreen></iframe>`
+          : `<img src="https://img.youtube.com/vi/${v.ytId}/hqdefault.jpg" 
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover" 
+                  alt="${v.title}" onerror="this.src='https://img.youtube.com/vi/${v.ytId}/default.jpg'">
+             <div class="play-overlay" onclick="reproducirVideo('${v.id}')">
+               <div class="play-btn">
+                 <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+               </div>
+             </div>`
+        }
+      </div>
+      <div class="vid-info">
+        <h4>${v.title}</h4>
+        <div class="vid-chips">
+          <span class="vid-chip">🎓 ${v.grado}</span>
+          <span class="vid-chip" style="background:#fee2e2">📚 ${v.unidad}</span>
+          <span class="vid-chip" style="background:#ede9fe;color:#6d28d9">📌 ${v.tema}</span>
+        </div>
+        ${v.desc ? `<p>${v.desc}</p>` : ''}
+        <div style="display:flex;gap:7px;flex-wrap:wrap">
+          <button class="btn btn-sm" style="background:linear-gradient(135deg,var(--ro),#f97316);color:#fff" 
+                  onclick="window.open('https://www.youtube.com/watch?v=${v.ytId}','_blank')">
+            ▶️ Ver en YouTube
+          </button>
+          <button class="btn btn-sm btn-out" onclick="copiarLink('https://www.youtube.com/watch?v=${v.ytId}')">📋 Copiar enlace</button>
+          <button class="btn btn-sm" style="background:#fee2e2;color:var(--ro);border:none" onclick="eliminarVideo('${v.id}')">🗑️</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// ============ GOOGLE MEET ============
+let meetIdCounter = 10;
+
+function crearReunion() {
+  const titulo = document.getElementById('meet-titulo').value.trim();
+  const grado  = document.getElementById('meet-grado').value;
+  const fecha  = document.getElementById('meet-fecha').value;
+  const hora   = document.getElementById('meet-hora').value;
+  const dur    = document.getElementById('meet-dur').value;
+  const link   = document.getElementById('meet-link').value.trim();
+  const desc   = document.getElementById('meet-desc').value.trim();
+
+  if (!titulo || !grado) {
+    showToast('⚠️ Ingresa al menos el título y el grado', 'warn'); return;
+  }
+  // Si no hay enlace, abrimos Google Meet para que el docente genere uno
+  const meetLink = link || 'https://meet.google.com/new';
+  const fechaFmt = fecha ? new Date(fecha + 'T12:00:00').toLocaleDateString('es-PE',{weekday:'short',day:'numeric',month:'long',year:'numeric'}) : 'Por confirmar';
+  const horaFmt  = hora  ? hora : 'Por confirmar';
+
+  const id = 'meet-' + (meetIdCounter++);
+  const esPurple = grado.includes('5°');
+  const card = document.createElement('div');
+  card.className = 'meet-card';
+  card.id = id;
+  card.style.marginBottom = '12px';
+  card.innerHTML = `
+    <div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap">
+      <div style="width:54px;height:54px;background:linear-gradient(135deg,${esPurple?'var(--mo),#a855f7':'#00897b,#26a69a'});border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">📹</div>
+      <div style="flex:1">
+        <h4 style="font-size:14px;font-weight:800;color:var(--az);margin-bottom:4px">${titulo}</h4>
+        <p style="font-size:11px;color:var(--gr);margin-bottom:7px">🎓 ${grado}</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+          <span style="background:#e8f5e9;color:#2e7d32;padding:3px 10px;border-radius:9px;font-size:10px;font-weight:700">📅 ${fechaFmt}</span>
+          <span style="background:#e3f2fd;color:#1565c0;padding:3px 10px;border-radius:9px;font-size:10px;font-weight:700">🕐 ${horaFmt} · ${dur}</span>
+          <span style="background:#fff3e0;color:#e65100;padding:3px 10px;border-radius:9px;font-size:10px;font-weight:700">👨‍🏫 Prof. Manolo Ortiz</span>
+          <span style="background:#e8f5e9;color:#1b5e20;padding:3px 10px;border-radius:9px;font-size:10px;font-weight:700">🟢 Programada</span>
+        </div>
+        ${desc ? `<p style="font-size:11px;color:var(--gr);margin-bottom:10px">📝 ${desc}</p>` : ''}
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn" style="background:linear-gradient(135deg,#00897b,#26a69a);color:#fff;font-size:11px;padding:7px 16px" onclick="unirseReunion('${meetLink}')">📹 Unirse a la reunión</button>
+          <button class="btn btn-out" style="font-size:11px;padding:7px 14px" onclick="copiarLink('${meetLink}')">📋 Copiar enlace</button>
+          <button class="btn" style="background:#fee2e2;color:var(--ro);border:none;font-size:11px;padding:7px 12px" onclick="eliminarReunion('${id}')">🗑️ Eliminar</button>
+        </div>
+      </div>
+    </div>`;
+
+  // Insertar antes de las tarjetas de ejemplo
+  const lista = document.getElementById('meetList');
+  lista.insertBefore(card, lista.firstChild);
+  limpiarMeetForm();
+  showToast('📹 Reunión creada y publicada para los estudiantes', 'success');
+}
+
+function abrirMeetNuevo() {
+  window.open('https://meet.google.com/new', '_blank');
+  showToast('🚀 Abriendo Google Meet en nueva pestaña…', 'info');
+}
+
+function unirseReunion(link) {
+  if (!link || link === 'https://meet.google.com/new') {
+    window.open('https://meet.google.com/new', '_blank');
+  } else {
+    window.open(link, '_blank');
+  }
+  showToast('📹 Abriendo reunión de Google Meet…', 'info');
+}
+
+function unirseConEnlace() {
+  const url = document.getElementById('meet-join-url').value.trim();
+  if (!url) { showToast('⚠️ Pega un enlace de Meet válido', 'warn'); return; }
+  if (!url.includes('meet.google.com')) { showToast('⚠️ El enlace debe ser de meet.google.com', 'warn'); return; }
+  window.open(url, '_blank');
+  showToast('📹 Uniéndose a la reunión…', 'info');
+}
+
+function copiarLink(link) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(link).then(() => showToast('📋 Enlace copiado al portapapeles', 'success'));
+  } else {
+    // Fallback para navegadores sin clipboard API
+    const el = document.createElement('textarea');
+    el.value = link; document.body.appendChild(el);
+    el.select(); document.execCommand('copy');
+    document.body.removeChild(el);
+    showToast('📋 Enlace copiado', 'success');
+  }
+}
+
+function eliminarReunion(id) {
+  const el = document.getElementById(id);
+  if (el) { el.remove(); showToast('🗑️ Reunión eliminada', 'warn'); }
+}
+
+function limpiarMeetForm() {
+  ['meet-titulo','meet-grado','meet-fecha','meet-hora','meet-link','meet-desc']
+    .forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  document.getElementById('meet-dur').value = '1 hora';
+}
+window.addEventListener('load',()=>{
+  updHero();updSecs();rCron();rForo();
+  document.querySelectorAll('.pf,.progf').forEach(el=>{const w=el.style.width;el.style.width='0';setTimeout(()=>el.style.width=w,600);});
+  // Cargar logo real
+  const img=new Image();
+  img.onload=()=>{
+    const li=document.getElementById('logoImg');
+    if(li){li.style.display='block';li.src=img.src;}
+  };
+});
+</script>
+</body>
+</html>
